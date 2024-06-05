@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : MonoBehaviour
+public class TileDots : MonoBehaviour
 {
     [SerializeField] private List<TileDot> dots;
 
@@ -15,7 +15,6 @@ public class Tile : MonoBehaviour
     private void Awake()
     {
         RemoveUnactivatedDots();
-        print(gameObject);
     }
 
     public IEnumerable<TileDot> Dots { get { return dots; } }
