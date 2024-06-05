@@ -15,6 +15,7 @@ public class Tile : MonoBehaviour
     private void Awake()
     {
         RemoveUnactivatedDots();
+        print(gameObject);
     }
 
     public IEnumerable<TileDot> Dots { get { return dots; } }
