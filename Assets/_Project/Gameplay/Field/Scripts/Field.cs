@@ -3,9 +3,16 @@ using UnityEngine;
 
 public class Field : MonoBehaviour
 {
+    public static Field Instance; // <-
+
     private Dictionary<Vector2Int, Tile> _tilesByCoordinates = new Dictionary<Vector2Int, Tile>();
 
-    [SerializeField] private float _tileSpacing;
+    [SerializeField] private float _tileSpacing; // <-
+
+    private void Awake()
+    {
+        Instance = this; // <-
+    }
 
     private void Start()
     {
@@ -26,6 +33,12 @@ public class Field : MonoBehaviour
             _tilesByCoordinates.Add(coordinates, tile);
             tile.Init(coordinates);
         }
+    }
+
+    public void SetTileCoordinates(Tile tile, Vector2Int coordinates) // <-
+    {
+        _tilesByCoordinates[coordinates] = tile;
+        tile.SetCoordinates(coordinates);
     }
 
     private Vector2 GetMinTilesPosition(Tile[] tiles)
