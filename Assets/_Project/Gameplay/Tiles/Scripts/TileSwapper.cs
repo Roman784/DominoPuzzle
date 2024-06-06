@@ -38,5 +38,7 @@ public static class TileSwapper
 
         tile1.Moving.Move(tile2.transform.position);
         tile2.Moving.Move(position);
+
+        Field.Instance.WinChecker.MatchTiles(); // <-
     }
 }

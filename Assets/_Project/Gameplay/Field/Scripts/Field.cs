@@ -9,6 +9,10 @@ public class Field : MonoBehaviour
 
     [SerializeField] private float _tileSpacing; // <-
 
+    [Space]
+
+    [SerializeField] public TileMatcher WinChecker; // <-
+
     private void Awake()
     {
         Instance = this; // <-
@@ -35,15 +39,22 @@ public class Field : MonoBehaviour
         }
     }
 
+    public IReadOnlyDictionary<Vector2Int, Tile> TilesByCoordinates => _tilesByCoordinates;
+
     public void SetTileCoordinates(Tile tile, Vector2Int coordinates) // <-
     {
         _tilesByCoordinates[coordinates] = tile;
         tile.SetCoordinates(coordinates);
     }
 
+    public bool HasTile(Vector2Int coordinates)
+    {
+        return _tilesByCoordinates.ContainsKey(coordinates);
+    }
+
     private Vector2 GetMinTilesPosition(Tile[] tiles)
     {
-        Vector2 position = Vector2.zero;
+        Vector2 position = Vector2.positiveInfinity;
 
         foreach (Tile tile in tiles)
         {
