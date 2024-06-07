@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ public class Field : MonoBehaviour
 {
     public static Field Instance; // <-
 
-    private Dictionary<Vector2Int, Tile> _tilesByCoordinates = new Dictionary<Vector2Int, Tile>();
+    private Dictionary<Vector2Int, Tile> _tilesByCoordinates = new Dictionary<Vector2Int, Tile>(); // <-
 
     [SerializeField] private float _tileSpacing; // <-
 
@@ -13,9 +14,13 @@ public class Field : MonoBehaviour
 
     [SerializeField] public TileMatcher WinChecker; // <-
 
+    public FieldAnimation Animation; // <-
+
     private void Awake()
     {
         Instance = this; // <-
+
+        Animation = GetComponent<FieldAnimation>();
     }
 
     private void Start()
@@ -37,6 +42,8 @@ public class Field : MonoBehaviour
             _tilesByCoordinates.Add(coordinates, tile);
             tile.Init(coordinates);
         }
+
+        Animation.TileAppearance(tiles);
     }
 
     public IReadOnlyDictionary<Vector2Int, Tile> TilesByCoordinates => _tilesByCoordinates;

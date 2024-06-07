@@ -8,6 +8,7 @@ public static class TileSwapper
     {
         if (_selectedTile == null)
         {
+            tile.Animation.Selection();
             _selectedTile = tile;
             return;
         }
@@ -25,6 +26,7 @@ public static class TileSwapper
 
     private static void Deselect()
     {
+        _selectedTile.Animation.Deselection();
         _selectedTile = null;
     }
 

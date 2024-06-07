@@ -6,12 +6,14 @@ public class Tile : MonoBehaviour
 {
     [field: SerializeField] public Vector2Int Coordinates { get; private set; }
     public TileMoving Moving { get; private set; }
+    public TileAnimation Animation { get; private set; }
     public TileDots Dots { get; private set; }
 
     public void Init(Vector2Int coordinates)
     {
         SetCoordinates(coordinates);
         Moving = GetComponent<TileMoving>();
+        Animation = GetComponent<TileAnimation>();
         Dots = GetComponent<TileDots>();
     }
 

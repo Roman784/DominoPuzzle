@@ -65,13 +65,19 @@ public class TileMatcher : MonoBehaviour
         }
 
         if (isWin)
-            Debug.Log("-------- Win --------");
+        {
+            List<Tile> tileList = new List<Tile>();
+            foreach(var item in tiles)
+            {
+                tileList.Add(item.Value);
+            }
+
+            Field.Instance.Animation.TileDisappearance(tileList.ToArray());
+        }
     }
 
     private bool MatchAdjacentTiles(Tile originTile)
     {
-        print(originTile);
-
         foreach (var direction in _tileDirections)
         {
             Vector2Int coordinates = originTile.Coordinates + direction;
@@ -85,8 +91,6 @@ public class TileMatcher : MonoBehaviour
 
     private bool MatchAdjacentTile(Tile originTile, Vector2Int coordinates)
     {
-        print(coordinates);
-
         IReadOnlyDictionary<Vector2Int, Tile> tiles = Field.Instance.TilesByCoordinates;
 
         if (!Field.Instance.HasTile(coordinates)) return true;
