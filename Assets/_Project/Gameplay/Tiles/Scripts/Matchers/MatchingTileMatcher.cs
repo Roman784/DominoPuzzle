@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-public class TileMatcher : MonoBehaviour
+public class MatchingTileMatcher : ITileMatcher, IInitializable, IDisposable
 {
     private Vector2Int[] _tileDirections = new Vector2Int[4]
     {
@@ -13,9 +15,29 @@ public class TileMatcher : MonoBehaviour
 
     private Dictionary<DotPosition, Dictionary<Vector2Int, DotPosition>> _dotAdjacencyMap;
 
-    private void Awake()
+    private ITileBehavior _tileBehavior;
+    private Field _field;
+
+    [Inject]
+    private void Construct(ITileBehavior tileBehavior, Field field)
+    {
+        _tileBehavior = tileBehavior;
+        _field = field;
+    }
+
+    private MatchingTileMatcher()
     {
         InitDotAdjacencyMap();
+    }
+
+    public void Initialize()
+    {
+        _tileBehavior.OnCompleted += MatchTiles;
+    }
+
+    public void Dispose()
+    {
+        _tileBehavior.OnCompleted -= MatchTiles;
     }
 
     private void InitDotAdjacencyMap()
@@ -49,7 +71,7 @@ public class TileMatcher : MonoBehaviour
 
     public void MatchTiles()
     {
-        IReadOnlyDictionary<Vector2Int, Tile> tiles = Field.Instance.TilesByCoordinates;
+        IReadOnlyDictionary<Vector2Int, Tile> tiles = _field.TilesByCoordinates;
 
         bool isWin = true;
 
@@ -72,7 +94,7 @@ public class TileMatcher : MonoBehaviour
                 tileList.Add(item.Value);
             }
 
-            Field.Instance.Animation.TileDisappearance(tileList.ToArray());
+            _field.Animation.TileDisappearance(tileList.ToArray());
         }
     }
 
@@ -91,9 +113,9 @@ public class TileMatcher : MonoBehaviour
 
     private bool MatchAdjacentTile(Tile originTile, Vector2Int coordinates)
     {
-        IReadOnlyDictionary<Vector2Int, Tile> tiles = Field.Instance.TilesByCoordinates;
+        IReadOnlyDictionary<Vector2Int, Tile> tiles = _field.TilesByCoordinates;
 
-        if (!Field.Instance.HasTile(coordinates)) return true;
+        if (!_field.HasTile(coordinates)) return true;
 
         Tile tile = tiles[coordinates];
 

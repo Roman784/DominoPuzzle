@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1417845257860086709}
   - component: {fileID: 3002401705197224620}
-  - component: {fileID: 9010612348344568183}
   - component: {fileID: 4316274563429991082}
   m_Layer: 0
   m_Name: Field
@@ -58,20 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tileSpacing: 1.2
-  WinChecker: {fileID: 9010612348344568183}
-  Animation: {fileID: 0}
---- !u!114 &9010612348344568183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6625330433175353689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a7b8b54414fe44081b75b70efca2ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  Animation: {fileID: 4316274563429991082}
 --- !u!114 &4316274563429991082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +122,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile21 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7035774212857699358, guid: 0fffd1b928a927e488abb59c9e0f5ab0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -157,6 +147,10 @@ PrefabInstance:
     - target: {fileID: 540707695129042369, guid: 8313ab65504d5e94188923342e3a571f, type: 3}
       propertyPath: m_Name
       value: Tile0 Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 540707695129042369, guid: 8313ab65504d5e94188923342e3a571f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2607041365635563284, guid: 8313ab65504d5e94188923342e3a571f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -260,6 +254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile12 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8932798582609629627, guid: 33d73138ab0f3164dae4150632d23101, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -321,6 +319,10 @@ PrefabInstance:
     - target: {fileID: 8283716807468495379, guid: 16b51e9bb32cc6940aab041b2b8c17cb, type: 3}
       propertyPath: m_Name
       value: Tile31 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283716807468495379, guid: 16b51e9bb32cc6940aab041b2b8c17cb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -384,6 +386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile12 Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8932798582609629627, guid: 33d73138ab0f3164dae4150632d23101, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -405,6 +411,10 @@ PrefabInstance:
     - target: {fileID: 6155247559140758331, guid: b12869455ffa88d48926687441f66716, type: 3}
       propertyPath: m_Name
       value: Tile14 Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155247559140758331, guid: b12869455ffa88d48926687441f66716, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8558314340894421486, guid: b12869455ffa88d48926687441f66716, type: 3}
       propertyPath: m_LocalPosition.x
@@ -508,6 +518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile13 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3911005174870322683, guid: be2722b02d3904b489f69f04938d9f0f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -529,6 +543,10 @@ PrefabInstance:
     - target: {fileID: 1041480454595590037, guid: 6daab51ee6bf08a4eaadd0986eb7f01e, type: 3}
       propertyPath: m_Name
       value: Tile4 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041480454595590037, guid: 6daab51ee6bf08a4eaadd0986eb7f01e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3304230847592715584, guid: 6daab51ee6bf08a4eaadd0986eb7f01e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -632,6 +650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile32 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8251447261736500648, guid: a516e94cd0d1f2a47b3b84a91fc4856f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -694,6 +716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile32 Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8251447261736500648, guid: a516e94cd0d1f2a47b3b84a91fc4856f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -715,6 +741,10 @@ PrefabInstance:
     - target: {fileID: 540707695129042369, guid: 8313ab65504d5e94188923342e3a571f, type: 3}
       propertyPath: m_Name
       value: Tile0 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 540707695129042369, guid: 8313ab65504d5e94188923342e3a571f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2607041365635563284, guid: 8313ab65504d5e94188923342e3a571f, type: 3}
       propertyPath: m_LocalPosition.x

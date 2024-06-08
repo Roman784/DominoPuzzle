@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(TileMoving))]
 public class Tile : MonoBehaviour
@@ -8,6 +8,14 @@ public class Tile : MonoBehaviour
     public TileMoving Moving { get; private set; }
     public TileAnimation Animation { get; private set; }
     public TileDots Dots { get; private set; }
+
+    private ITileBehavior _behavior;
+
+    [Inject]
+    private void Construct(ITileBehavior behavior)
+    {
+        _behavior = behavior;
+    }
 
     public void Init(Vector2Int coordinates)
     {
@@ -22,19 +30,8 @@ public class Tile : MonoBehaviour
         Coordinates = coordinates;
     }
 
-    public bool HasDot(DotPosition position)
-    {
-        foreach (var dot in Dots.Dots)
-        {
-            if (dot.Position == position)
-                return true;
-        }
-
-        return false;
-    }
-
     private void OnMouseUp()
     {
-        TileSwapper.Select(this);
+        _behavior.OnClick(this);
     }
 }

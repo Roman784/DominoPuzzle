@@ -1,10 +1,22 @@
+using System;
 using UnityEngine;
+using Zenject;
 
-public static class TileSwapper
+public class TileSwapBehavior : ITileBehavior
 {
     private static Tile _selectedTile;
-    
-    public static void Select(Tile tile)
+
+    public event Action OnCompleted;
+
+    private Field _field;
+
+    [Inject]
+    private void Construct(Field field)
+    {
+        _field = field;
+    }
+
+    public void OnClick(Tile tile)
     {
         if (_selectedTile == null)
         {
@@ -24,23 +36,23 @@ public static class TileSwapper
         Deselect();
     }
 
-    private static void Deselect()
+    private void Deselect()
     {
         _selectedTile.Animation.Deselection();
         _selectedTile = null;
     }
 
-    private static void Swap(Tile tile1, Tile tile2)
+    private void Swap(Tile tile1, Tile tile2)
     {
         Vector2Int coordinates = tile1.Coordinates;
         Vector2 position = tile1.transform.position;
 
-        Field.Instance.SetTileCoordinates(tile1, tile2.Coordinates);
-        Field.Instance.SetTileCoordinates(tile2, coordinates);
+        _field.SetTileCoordinates(tile1, tile2.Coordinates);
+        _field.SetTileCoordinates(tile2, coordinates);
 
         tile1.Moving.Move(tile2.transform.position);
         tile2.Moving.Move(position);
 
-        Field.Instance.WinChecker.MatchTiles(); // <-
+        OnCompleted?.Invoke();
     }
 }

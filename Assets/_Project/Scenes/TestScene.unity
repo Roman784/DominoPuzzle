@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fieldPrefab: {fileID: 3002401705197224620, guid: ca5b7505976fc5b44809b99c92ee941a, type: 3}
-  _fieldSpawnCOnfig: {fileID: 11400000, guid: 503af784053ecb34da549d3643030005, type: 2}
+  _fieldSpawnConfig: {fileID: 11400000, guid: 503af784053ecb34da549d3643030005, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

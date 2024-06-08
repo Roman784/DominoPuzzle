@@ -1,32 +1,24 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
 public class Field : MonoBehaviour
 {
-    public static Field Instance; // <-
-
     private Dictionary<Vector2Int, Tile> _tilesByCoordinates = new Dictionary<Vector2Int, Tile>(); // <-
 
-    [SerializeField] private float _tileSpacing; // <-
+    [SerializeField] private float _tileSpacing;
 
     [Space]
-
-    [SerializeField] public TileMatcher WinChecker; // <-
 
     public FieldAnimation Animation; // <-
 
     [Inject]
     private void Construct(FieldSpawnConfig config)
     {
-        Debug.Log($" field spawn {config.Fields.Count}");
     }
 
     private void Awake()
     {
-        Instance = this; // <-
-
         Animation = GetComponent<FieldAnimation>();
     }
 

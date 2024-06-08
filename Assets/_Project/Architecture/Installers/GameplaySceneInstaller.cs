@@ -4,19 +4,28 @@ using Zenject;
 public class GameplaySceneInstaller : MonoInstaller
 {
     [SerializeField] private Field _fieldPrefab;
-    [SerializeField] private FieldSpawnConfig _fieldSpawnCOnfig;
+    [SerializeField] private FieldSpawnConfig _fieldSpawnConfig;
 
     public override void InstallBindings()
     {
+        BindTileSwapper();
+        BindTileMatcher();
         BindField();
-        //Container.Bind<>().To<>().AsSingle();
     }
 
     private void BindField()
     {
-        Container.Bind<FieldSpawnConfig>().FromInstance(_fieldSpawnCOnfig);
+        Container.Bind<FieldSpawnConfig>().FromInstance(_fieldSpawnConfig);
+        Container.Bind<Field>().FromComponentInNewPrefab(_fieldPrefab).AsSingle();
+    }
 
-        Field field = Container.InstantiatePrefabForComponent<Field>(_fieldPrefab);
-        Container.BindInterfacesAndSelfTo<Field>().FromInstance(field).AsSingle();
+    private void BindTileSwapper()
+    {
+        Container.BindInterfacesAndSelfTo<TileSwapBehavior>().AsSingle().NonLazy();
+    }
+
+    private void BindTileMatcher()
+    {
+        Container.BindInterfacesAndSelfTo<MatchingTileMatcher>().AsSingle().NonLazy();
     }
 }
