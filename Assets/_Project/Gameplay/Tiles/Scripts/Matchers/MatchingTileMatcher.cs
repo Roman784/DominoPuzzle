@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class MatchingTileMatcher : ITileMatcher, IInitializable, IDisposable
+public class MatchingTileMatcher : ITileMatcher
 {
     private Vector2Int[] _tileDirections = new Vector2Int[4]
     {
@@ -13,31 +13,20 @@ public class MatchingTileMatcher : ITileMatcher, IInitializable, IDisposable
         Vector2Int.right
     };
 
+    // Map of the correct adjacency depending on the position and direction of the tiles.
     private Dictionary<DotPosition, Dictionary<Vector2Int, DotPosition>> _dotAdjacencyMap;
 
-    private ITileBehavior _tileBehavior;
     private Field _field;
 
     [Inject]
-    private void Construct(ITileBehavior tileBehavior, Field field)
+    private void Construct(FieldCreator fieldCreator)
     {
-        _tileBehavior = tileBehavior;
-        _field = field;
+        _field = fieldCreator.CreatedField;
     }
 
     private MatchingTileMatcher()
     {
         InitDotAdjacencyMap();
-    }
-
-    public void Initialize()
-    {
-        _tileBehavior.OnCompleted += MatchTiles;
-    }
-
-    public void Dispose()
-    {
-        _tileBehavior.OnCompleted -= MatchTiles;
     }
 
     private void InitDotAdjacencyMap()
@@ -69,33 +58,15 @@ public class MatchingTileMatcher : ITileMatcher, IInitializable, IDisposable
         };
     }
 
-    public void MatchTiles()
+    public bool MatchTiles()
     {
-        IReadOnlyDictionary<Vector2Int, Tile> tiles = _field.TilesByCoordinates;
-
-        bool isWin = true;
-
-        foreach (var item in tiles)
+        foreach (Tile tile in _field.Tiles)
         {
-            Tile tile = item.Value;
-
             if (!MatchAdjacentTiles(tile))
-            {
-                isWin = false;
-                break;
-            }
+                return false;
         }
 
-        if (isWin)
-        {
-            List<Tile> tileList = new List<Tile>();
-            foreach(var item in tiles)
-            {
-                tileList.Add(item.Value);
-            }
-
-            _field.Animation.TileDisappearance(tileList.ToArray());
-        }
+        return true;
     }
 
     private bool MatchAdjacentTiles(Tile originTile)
@@ -113,20 +84,16 @@ public class MatchingTileMatcher : ITileMatcher, IInitializable, IDisposable
 
     private bool MatchAdjacentTile(Tile originTile, Vector2Int coordinates)
     {
-        IReadOnlyDictionary<Vector2Int, Tile> tiles = _field.TilesByCoordinates;
-
         if (!_field.HasTile(coordinates)) return true;
 
-        Tile tile = tiles[coordinates];
-
-        return MatchDots(originTile, tile);
-    }
-
-    private bool MatchDots(Tile originTile, Tile tile)
-    {
-        IEnumerable<TileDot> originDots = originTile.Dots.Dots;
+        Tile tile = _field.TilesMap[coordinates];
         Vector2Int direction = tile.Coordinates - originTile.Coordinates;
 
+        return MatchDots(originTile.Dots, tile.Dots, direction);
+    }
+
+    private bool MatchDots(IEnumerable<TileDot> originDots, IEnumerable<TileDot> dots, Vector2Int direction)
+    {
         foreach (var originDot in originDots)
         {
             if (!_dotAdjacencyMap[originDot.Position].ContainsKey(direction))
@@ -134,7 +101,7 @@ public class MatchingTileMatcher : ITileMatcher, IInitializable, IDisposable
 
             bool hasDot = false;
 
-            foreach (var dot in tile.Dots.Dots)
+            foreach (var dot in dots)
             {
                 if (_dotAdjacencyMap[originDot.Position][direction] == dot.Position)
                 {

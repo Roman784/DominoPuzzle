@@ -502,8 +502,6 @@ GameObject:
   - component: {fileID: 4225099535115871523}
   - component: {fileID: 3156644550809120855}
   - component: {fileID: 4553621497083831498}
-  - component: {fileID: 4807217499960517825}
-  - component: {fileID: 4712577579307565423}
   - component: {fileID: 3259022341865967054}
   m_Layer: 0
   m_Name: TileBase
@@ -632,31 +630,6 @@ MonoBehaviour:
   - <Dot>k__BackingField: {fileID: 4870534708759078323}
     <Position>k__BackingField: 2
     <IsActive>k__BackingField: 1
---- !u!114 &4807217499960517825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6553709971038015323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1af92c7749f577408a57945bcfb2e6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 10
---- !u!114 &4712577579307565423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6553709971038015323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e6928eacd393d45a8e347eba9ba698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3259022341865967054
 MonoBehaviour:
   m_ObjectHideFlags: 0

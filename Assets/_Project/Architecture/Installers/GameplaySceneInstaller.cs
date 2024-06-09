@@ -3,29 +3,43 @@ using Zenject;
 
 public class GameplaySceneInstaller : MonoInstaller
 {
-    [SerializeField] private Field _fieldPrefab;
-    [SerializeField] private FieldSpawnConfig _fieldSpawnConfig;
+    [SerializeField] private FieldCreator _fieldCreatorPrefab;
+
+    [Space]
+
+    [SerializeField] private FieldConfig _fieldConfig;
+    [SerializeField] private FieldCreationConfig _fieldCreationConfig;
+    [SerializeField] private FieldAnimationConfig _fieldAnimationConfig;
+    [SerializeField] private TileConfig _tileConfig;
 
     public override void InstallBindings()
     {
-        BindTileSwapper();
+        BindConfigs();
+        BindTileBehavior();
         BindTileMatcher();
-        BindField();
+        BindFieldCreator();
     }
 
-    private void BindField()
+    private void BindConfigs()
     {
-        Container.Bind<FieldSpawnConfig>().FromInstance(_fieldSpawnConfig);
-        Container.Bind<Field>().FromComponentInNewPrefab(_fieldPrefab).AsSingle();
+        Container.Bind<FieldConfig>().FromInstance(_fieldConfig).AsSingle();
+        Container.Bind<FieldCreationConfig>().FromInstance(_fieldCreationConfig).AsSingle();
+        Container.Bind<FieldAnimationConfig>().FromInstance(_fieldAnimationConfig).AsSingle();
+        Container.Bind<TileConfig>().FromInstance(_tileConfig).AsSingle();
     }
 
-    private void BindTileSwapper()
+    private void BindTileBehavior()
     {
-        Container.BindInterfacesAndSelfTo<TileSwapBehavior>().AsSingle().NonLazy();
+        Container.Bind<ITileBehavior>().To<TileSwapBehavior>().AsSingle().NonLazy();
     }
 
     private void BindTileMatcher()
     {
-        Container.BindInterfacesAndSelfTo<MatchingTileMatcher>().AsSingle().NonLazy();
+        Container.Bind<ITileMatcher>().To<MatchingTileMatcher>().AsSingle().NonLazy();
+    }
+
+    private void BindFieldCreator()
+    {
+        Container.Bind<FieldCreator>().FromComponentInNewPrefab(_fieldCreatorPrefab).AsSingle().NonLazy();
     }
 }

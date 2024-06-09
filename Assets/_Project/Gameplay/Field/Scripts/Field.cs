@@ -1,64 +1,69 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
 public class Field : MonoBehaviour
 {
-    private Dictionary<Vector2Int, Tile> _tilesByCoordinates = new Dictionary<Vector2Int, Tile>(); // <-
+    private Dictionary<Vector2Int, Tile> _tilesMap = new Dictionary<Vector2Int, Tile>();
+    private List<Tile> _tiles = new List<Tile>();
 
-    [SerializeField] private float _tileSpacing;
+    private float _tileSpacing;
 
-    [Space]
-
-    public FieldAnimation Animation; // <-
+    private FieldAnimation _animation;
+    private FieldAnimationConfig _animationConfig;
 
     [Inject]
-    private void Construct(FieldSpawnConfig config)
+    private void Construct(FieldConfig config, FieldAnimationConfig animationConfig)
     {
+        _tileSpacing = config.TileSpacing;
+        _animationConfig = animationConfig;
     }
 
     private void Awake()
     {
-        Animation = GetComponent<FieldAnimation>();
+        _animation = new FieldAnimation(this, _animationConfig);
     }
 
     private void Start()
     {
-        Tile[] tiles = FindObjectsOfType<Tile>();
+        _tiles = FindObjectsOfType<Tile>().ToList();
 
-        InitTiles(tiles);
+        InitTiles(_tiles);
+
+        Animation.TileAppearance();
     }
 
-    private void InitTiles(Tile[] tiles)
+    private void InitTiles(List<Tile> tiles)
     {
-        Vector2 minPosition = GetMinTilesPosition(tiles);
+        Vector2 minPosition = GetMinimalTilePosition(tiles);
 
         foreach (Tile tile in tiles)
         {
             Vector2 relativePosition = (Vector2)tile.transform.position - minPosition;
             Vector2Int coordinates = RoundVectorToInt(relativePosition / _tileSpacing);
 
-            _tilesByCoordinates.Add(coordinates, tile);
-            tile.Init(coordinates);
+            _tilesMap.Add(coordinates, tile);
+            tile.Init(coordinates, this);
         }
-
-        Animation.TileAppearance(tiles);
     }
 
-    public IReadOnlyDictionary<Vector2Int, Tile> TilesByCoordinates => _tilesByCoordinates;
+    public IReadOnlyDictionary<Vector2Int, Tile> TilesMap => _tilesMap;
+    public IEnumerable<Tile> Tiles => _tiles;
+    public FieldAnimation Animation => _animation;
 
-    public void SetTileCoordinates(Tile tile, Vector2Int coordinates) // <-
+    public void SetTile(Tile tile, Vector2Int coordinates)
     {
-        _tilesByCoordinates[coordinates] = tile;
+        _tilesMap[coordinates] = tile;
         tile.SetCoordinates(coordinates);
     }
 
     public bool HasTile(Vector2Int coordinates)
     {
-        return _tilesByCoordinates.ContainsKey(coordinates);
+        return _tilesMap.ContainsKey(coordinates);
     }
 
-    private Vector2 GetMinTilesPosition(Tile[] tiles)
+    private Vector2 GetMinimalTilePosition(List<Tile> tiles)
     {
         Vector2 position = Vector2.positiveInfinity;
 

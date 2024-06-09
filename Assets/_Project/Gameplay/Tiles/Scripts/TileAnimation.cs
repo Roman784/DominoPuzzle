@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class TileAnimation : MonoBehaviour
+public class TileAnimation
 {
     private Animator _animator;
 
-    private void Awake()
+    public TileAnimation(Animator animator)
     {
-        _animator = GetComponent<Animator>();
+        _animator = animator;
     }
 
     public void Appearance()

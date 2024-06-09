@@ -4,24 +4,23 @@ using Zenject;
 
 public class TileSwapBehavior : ITileBehavior
 {
-    private static Tile _selectedTile;
-
     public event Action OnCompleted;
+
+    private Tile _selectedTile;
 
     private Field _field;
 
     [Inject]
-    private void Construct(Field field)
+    private void Construct(FieldCreator fieldCreator)
     {
-        _field = field;
+        _field = fieldCreator.CreatedField;
     }
 
     public void OnClick(Tile tile)
     {
         if (_selectedTile == null)
         {
-            tile.Animation.Selection();
-            _selectedTile = tile;
+            Select(tile);
             return;
         }
 
@@ -36,6 +35,12 @@ public class TileSwapBehavior : ITileBehavior
         Deselect();
     }
 
+    private void Select(Tile tile)
+    {
+        tile.Animation.Selection();
+        _selectedTile = tile;
+    }
+
     private void Deselect()
     {
         _selectedTile.Animation.Deselection();
@@ -47,8 +52,8 @@ public class TileSwapBehavior : ITileBehavior
         Vector2Int coordinates = tile1.Coordinates;
         Vector2 position = tile1.transform.position;
 
-        _field.SetTileCoordinates(tile1, tile2.Coordinates);
-        _field.SetTileCoordinates(tile2, coordinates);
+        _field.SetTile(tile1, tile2.Coordinates);
+        _field.SetTile(tile2, coordinates);
 
         tile1.Moving.Move(tile2.transform.position);
         tile2.Moving.Move(position);

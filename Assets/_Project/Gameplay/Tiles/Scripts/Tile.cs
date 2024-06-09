@@ -1,33 +1,57 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-[RequireComponent(typeof(TileMoving))]
+[RequireComponent(typeof(Animator))]
 public class Tile : MonoBehaviour
 {
-    [field: SerializeField] public Vector2Int Coordinates { get; private set; }
-    public TileMoving Moving { get; private set; }
-    public TileAnimation Animation { get; private set; }
-    public TileDots Dots { get; private set; }
+    private Vector2Int _coordinates;
 
+    private TileDots _dots;
+    private TileMoving _moving;
+    private TileAnimation _animation;
+    
     private ITileBehavior _behavior;
+    private TileConfig _config;
+
+    private Field _field;
 
     [Inject]
-    private void Construct(ITileBehavior behavior)
+    private void Construct(ITileBehavior behavior, TileConfig config)
     {
         _behavior = behavior;
+        _config = config;
     }
 
-    public void Init(Vector2Int coordinates)
+    private void Awake()
     {
-        SetCoordinates(coordinates);
-        Moving = GetComponent<TileMoving>();
-        Animation = GetComponent<TileAnimation>();
-        Dots = GetComponent<TileDots>();
+        Animator animator = GetComponent<Animator>();
+
+        _dots = GetComponent<TileDots>();
+        _moving = new TileMoving(transform, _config.MoveSpeed);
+        _animation = new TileAnimation(animator);
+
     }
+
+    public void Init(Vector2Int coordinates, Field field)
+    {
+        _coordinates = coordinates;
+        _field = field;
+    }
+
+    public Vector2Int Coordinates => _coordinates;
+    public IEnumerable<TileDot> Dots => _dots.Dots;
+    public TileMoving Moving => _moving;
+    public TileAnimation Animation => _animation;
 
     public void SetCoordinates(Vector2Int coordinates)
     {
-        Coordinates = coordinates;
+        if (_field.TilesMap[coordinates] != this)
+            throw new Exception("The coordinates are already used by another tile. " +
+                                "You can change the coordinates using the Field class.");
+
+        _coordinates = coordinates;
     }
 
     private void OnMouseUp()

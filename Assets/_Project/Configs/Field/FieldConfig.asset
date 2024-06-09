@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9c29326178eef74eb48119c85f62635, type: 3}
-  m_Name: FieldSpawnConfig
+  m_Script: {fileID: 11500000, guid: 48371b46ba73d4047873760b55cb66c8, type: 3}
+  m_Name: FieldConfig
   m_EditorClassIdentifier: 
-  <Fields>k__BackingField:
-  - {fileID: 3002401705197224620, guid: ca5b7505976fc5b44809b99c92ee941a, type: 3}
+  <TileSpacing>k__BackingField: 1.2

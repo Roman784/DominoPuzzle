@@ -1,36 +1,48 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldAnimation : MonoBehaviour
+public class FieldAnimation
 {
-    public void TileAppearance(Tile[] tiles)
+    private Field _field;
+
+    private float _tileAppearanceDelay;
+    private float _tileDisappearanceDelay;
+
+    public FieldAnimation(Field field, FieldAnimationConfig config)
     {
-        StartCoroutine(TileAppearanceRoutine(tiles));
+        _field = field;
+
+        _tileAppearanceDelay = config.TileAppearanceDelay;
+        _tileDisappearanceDelay = config.TileDisappearanceDelay;
     }
 
-    public void TileDisappearance(Tile[] tiles)
+    public void TileAppearance()
     {
-        StartCoroutine(TileDisppearanceRoutine(tiles));
+        Coroutines.StartRoutine(TileAppearanceRoutine());
     }
 
-    private IEnumerator TileAppearanceRoutine(Tile[] tiles)
+    public void TileDisappearance()
     {
-        foreach (Tile tile in tiles)
+        Coroutines.StartRoutine(TileDisppearanceRoutine());
+    }
+
+    private IEnumerator TileAppearanceRoutine()
+    {
+        foreach (Tile tile in _field.Tiles)
         {
             tile.Animation.Appearance();
 
-            yield return new WaitForSeconds(0.035f);
+            yield return new WaitForSeconds(_tileAppearanceDelay);
         }
     }
 
-    private IEnumerator TileDisppearanceRoutine(Tile[] tiles)
+    private IEnumerator TileDisppearanceRoutine()
     {
-        foreach (Tile tile in tiles)
+        foreach (Tile tile in _field.Tiles)
         {
             tile.Animation.Disappearance();
 
-            yield return new WaitForSeconds(0.035f);
+            yield return new WaitForSeconds(_tileDisappearanceDelay);
         }
     }
 }

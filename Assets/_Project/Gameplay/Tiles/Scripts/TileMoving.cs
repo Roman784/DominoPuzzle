@@ -1,27 +1,34 @@
 using System.Collections;
 using UnityEngine;
 
-public class TileMoving : MonoBehaviour
+public class TileMoving
 {
-    [SerializeField] private float _speed;
+    private Transform _transform;
+    private float _speed;
+
+    public TileMoving(Transform transform, float speed)
+    {
+        _transform = transform;
+        _speed = speed;
+    }
 
     public void Move(Vector2 position)
     {
-        StartCoroutine(MoveRoutine(position, Time.fixedDeltaTime));
+        Coroutines.StartRoutine(MoveRoutine(position));
     }
 
-    private IEnumerator MoveRoutine(Vector2 position, float delta)
+    private IEnumerator MoveRoutine(Vector2 position)
     {
         float distanceToTarget;
         do
         {
-            transform.position = Vector2.Lerp(transform.position, position, _speed * delta);
-            distanceToTarget = Vector2.Distance(transform.position, position);
+            _transform.position = Vector2.Lerp(_transform.position, position, _speed * Time.deltaTime);
+            distanceToTarget = Vector2.Distance(_transform.position, position);
 
             yield return null;
 
         } while (distanceToTarget > 0.05f);
 
-        transform.position = position;
+        _transform.position = position;
     }
 }

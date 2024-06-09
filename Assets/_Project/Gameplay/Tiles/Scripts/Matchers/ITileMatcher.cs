@@ -1,4 +1,4 @@
 public interface ITileMatcher
 {
-    public void MatchTiles();
+    public bool MatchTiles();
 }

@@ -14,12 +14,12 @@ public class TileDots : MonoBehaviour
 
     private void Awake()
     {
-        RemoveUnactivatedDots();
+        RemoveInactiveDots();
     }
 
-    public IEnumerable<TileDot> Dots { get { return dots; } }
+    public IEnumerable<TileDot> Dots => dots;
 
-    private void RemoveUnactivatedDots()
+    private void RemoveInactiveDots()
     {
         List<TileDot> newDots = new List<TileDot>();
         foreach (var dot in dots)
