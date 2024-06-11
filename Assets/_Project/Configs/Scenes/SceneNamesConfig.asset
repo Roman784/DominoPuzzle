@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0637118a23c9ba4f9e15a7671a6a144, type: 3}
   m_Name: SceneNamesConfig
   m_EditorClassIdentifier: 
-  <MainMenu>k__BackingField: MainMenu
+  <LevelList>k__BackingField: LevelList
   <GameplayScene>k__BackingField: GameplayScene
