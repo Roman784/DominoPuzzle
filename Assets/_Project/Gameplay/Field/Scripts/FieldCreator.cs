@@ -5,20 +5,18 @@ using Zenject;
 
 public class FieldCreator : MonoBehaviour
 {
-    [SerializeField] private int _fieldNumber; // <-
-
     private List<FieldPrefabItem> _fieldPrefabsMap;
     private Field _createdField;
 
     private DiContainer _diContainer;
 
     [Inject]
-    private void Construct(DiContainer diContainer, FieldCreationConfig config)
+    private void Construct(DiContainer diContainer, FieldCreationConfig config, OpeningLevelNumber openingLevelNumber)
     {
         _diContainer = diContainer;
         _fieldPrefabsMap = config.FieldPrefabsMap;
 
-        Create(_fieldNumber);
+        Create(openingLevelNumber.Number);
     }
 
     public Field CreatedField => _createdField;
