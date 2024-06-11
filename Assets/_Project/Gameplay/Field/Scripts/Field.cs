@@ -10,6 +10,7 @@ public class Field : MonoBehaviour
 
     private float _tileSpacing;
 
+    private FieldShuffler _shuffler;
     private FieldAnimation _animation;
     private FieldAnimationConfig _animationConfig;
 
@@ -22,6 +23,7 @@ public class Field : MonoBehaviour
 
     private void Awake()
     {
+        _shuffler = new FieldShuffler(this);
         _animation = new FieldAnimation(this, _animationConfig);
     }
 
@@ -31,7 +33,8 @@ public class Field : MonoBehaviour
 
         InitTiles(_tiles);
 
-        Animation.TileAppearance();
+        _shuffler.Shuffle();
+        _animation.TileAppearance();
     }
 
     private void InitTiles(List<Tile> tiles)
@@ -50,6 +53,7 @@ public class Field : MonoBehaviour
 
     public IReadOnlyDictionary<Vector2Int, Tile> TilesMap => _tilesMap;
     public IEnumerable<Tile> Tiles => _tiles;
+    public FieldShuffler Shuffler => _shuffler;
     public FieldAnimation Animation => _animation;
 
     public void SetTile(Tile tile, Vector2Int coordinates)
