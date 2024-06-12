@@ -17,6 +17,7 @@ public class GameplaySceneInstaller : MonoInstaller
         BindConfigs();
         BindTileBehavior();
         BindTileMatcher();
+        BindHintGiver();
         BindFieldCreator();
     }
 
@@ -36,6 +37,11 @@ public class GameplaySceneInstaller : MonoInstaller
     private void BindTileMatcher()
     {
         Container.Bind<ITileMatcher>().To<MatchingTileMatcher>().AsSingle().NonLazy();
+    }
+
+    private void BindHintGiver()
+    {
+        Container.Bind<HintGiver>().AsSingle().NonLazy();
     }
 
     private void BindFieldCreator()

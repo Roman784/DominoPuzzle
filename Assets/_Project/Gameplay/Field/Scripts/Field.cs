@@ -6,6 +6,7 @@ using Zenject;
 public class Field : MonoBehaviour
 {
     private Dictionary<Vector2Int, Tile> _tilesMap = new Dictionary<Vector2Int, Tile>();
+    private Dictionary<Vector2Int, Tile> _correctTilesMap = new Dictionary<Vector2Int, Tile>();
     private List<Tile> _tiles = new List<Tile>();
 
     private float _tileSpacing;
@@ -32,6 +33,7 @@ public class Field : MonoBehaviour
         _tiles = FindObjectsOfType<Tile>().ToList();
 
         InitTiles(_tiles);
+        SetCorrectTilesMap(_tilesMap);
 
         _shuffler.Shuffle();
         _animation.TileAppearance();
@@ -52,6 +54,7 @@ public class Field : MonoBehaviour
     }
 
     public IReadOnlyDictionary<Vector2Int, Tile> TilesMap => _tilesMap;
+    public IReadOnlyDictionary<Vector2Int, Tile> CorrectTilesMap => _correctTilesMap;
     public IEnumerable<Tile> Tiles => _tiles;
     public FieldShuffler Shuffler => _shuffler;
     public FieldAnimation Animation => _animation;
@@ -65,6 +68,14 @@ public class Field : MonoBehaviour
     public bool HasTile(Vector2Int coordinates)
     {
         return _tilesMap.ContainsKey(coordinates);
+    }
+
+    private void SetCorrectTilesMap(Dictionary<Vector2Int, Tile> tilesMap)
+    {
+        foreach (var item in tilesMap)
+        {
+            _correctTilesMap.Add(item.Key, item.Value);
+        }
     }
 
     private Vector2 GetMinimalTilePosition(List<Tile> tiles)

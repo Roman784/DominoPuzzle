@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Animator), typeof(TileLocker), typeof(TileDot))]
 public class Tile : MonoBehaviour
 {
     private Vector2Int _coordinates;
 
     private TileDots _dots;
+    private TileLocker _locker;
     private TileMoving _moving;
     private TileAnimation _animation;
     
@@ -29,6 +30,7 @@ public class Tile : MonoBehaviour
         Animator animator = GetComponent<Animator>();
 
         _dots = GetComponent<TileDots>();
+        _locker = GetComponent<TileLocker>();
         _moving = new TileMoving(transform, _config.MoveSpeed);
         _animation = new TileAnimation(animator);
 
@@ -42,6 +44,7 @@ public class Tile : MonoBehaviour
 
     public Vector2Int Coordinates => _coordinates;
     public IEnumerable<TileDot> Dots => _dots.Dots;
+    public TileLocker Locker => _locker;
     public TileMoving Moving => _moving;
     public TileAnimation Animation => _animation;
 
@@ -56,6 +59,7 @@ public class Tile : MonoBehaviour
 
     private void OnMouseUp()
     {
-        _behavior.OnClick(this);
+        if (!_locker.IsLocked)
+            _behavior.OnClick(this);
     }
 }

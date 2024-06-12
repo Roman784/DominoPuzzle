@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -19,6 +18,9 @@ public class FieldShuffler
         foreach (Tile tile1 in tiles)
         {
             Tile tile2 = tiles[Random.Range(0, tiles.Count)];
+
+            if (tile1.Locker.IsLocked || tile2.Locker.IsLocked)
+                continue;
 
             SwapTiles(tile1, tile2);
         }
