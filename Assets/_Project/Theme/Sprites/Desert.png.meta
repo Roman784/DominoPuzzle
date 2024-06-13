@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f9027e4a748dfe14ba2a1c3023df947a
+guid: 7516e912c9b732448b5c2fbf21420e52
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 110
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,34 +136,55 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UISprites_0
+      name: Desert_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 124
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 50, y: 50, z: 50, w: 50}
+        x: 0
+        y: 1522
+        width: 2063
+        height: 2419
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ece0fb5f8a841d45a59fcdaa229f2cd
-      internalID: 1591197890
+      spriteID: dc482696b674d6a4bba81b9af72eaf1b
+      internalID: -2071183790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UISprites_1
+      name: Desert_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 30
-        width: 68
-        height: 48
+        x: 0
+        y: 833
+        width: 2063
+        height: 572
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881434d8cc741484f85250e7ad663720
+      internalID: -677746235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert_2
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 1397
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,197 +192,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf97f4ff8d4ed6a4b9c27a4ecd9b699e
-      internalID: -337800708
+      spriteID: 40250ea8bb55b4e43b6e1ca63105fb7b
+      internalID: 284374435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UISprites_2
+      name: Desert_11
       rect:
         serializedVersion: 2
-        x: 156
-        y: 24
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 0
+        width: 2063
+        height: 755
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2972352ac085df54c941001cbaa6a7c9
-      internalID: -910947935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_3
-      rect:
-        serializedVersion: 2
-        x: 257
-        y: 24
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f42df4adddf549a478ffb9626912874a
-      internalID: 1743709787
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_4
-      rect:
-        serializedVersion: 2
-        x: 351
-        y: 27
-        width: 57
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ccbb7f9991a96a439e5d27a752e6aef
-      internalID: -562221691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_5
-      rect:
-        serializedVersion: 2
-        x: 438
-        y: 23
-        width: 60
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 055a997dd0101d44fa9759794518b59f
-      internalID: -2096188662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_6
-      rect:
-        serializedVersion: 2
-        x: 519
-        y: 22
-        width: 64
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a1ee5eb317496e4e8df5b8138a4163a
-      internalID: 1630117760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_7
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 124
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 20, y: 20, z: 20, w: 20}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c3103a17a83c7c4290a58f5df402d4b
-      internalID: -1082186852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_8
-      rect:
-        serializedVersion: 2
-        x: 613
-        y: 24
-        width: 37
-        height: 53
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 940870bdd8f388843a715b3d842b44bd
-      internalID: -1310028937
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_9
-      rect:
-        serializedVersion: 2
-        x: 675
-        y: 24
-        width: 42
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2800a545abf90814098fe13783fca3a1
-      internalID: -959505848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_10
-      rect:
-        serializedVersion: 2
-        x: 749
-        y: 21
-        width: 48
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 45259ac6ffbe1344daeee9ef490e0012
-      internalID: 1371326910
+      spriteID: 98edff74cdb6f46498c0331d03cf8322
+      internalID: 355961052
       vertices: []
       indices: 
       edges: []
@@ -377,17 +230,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UISprites_0: 1591197890
-      UISprites_1: -337800708
-      UISprites_10: 1371326910
-      UISprites_2: -910947935
-      UISprites_3: 1743709787
-      UISprites_4: -562221691
-      UISprites_5: -2096188662
-      UISprites_6: 1630117760
-      UISprites_7: -1082186852
-      UISprites_8: -1310028937
-      UISprites_9: -959505848
+      Desert_0: -2071183790
+      Desert_1: -677746235
+      Desert_10: 206357069
+      Desert_11: 355961052
+      Desert_12: 916500835
+      Desert_13: 14669977
+      Desert_14: -725498144
+      Desert_15: 751775873
+      Desert_16: -720121021
+      Desert_2: 284374435
+      Desert_3: -1570831719
+      Desert_4: 902569048
+      Desert_5: -52161198
+      Desert_6: -689903230
+      Desert_7: -1962179355
+      Desert_8: -1761890748
+      Desert_9: -614637172
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

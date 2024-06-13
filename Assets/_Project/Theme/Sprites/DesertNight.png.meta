@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 87249aceb96f06b448df975de7e07bcf
+guid: a00530cf272a46c4fb3423b01e8a97a5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 68
+  spritePixelsToUnits: 116
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,7 +134,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DesertNight_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1062
+        width: 2063
+        height: 2420
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148cce779492a6240aa94647df5ce9a6
+      internalID: 1449111545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertNight_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 187
+        width: 2063
+        height: 810
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0904a492ff72f3c4dad36775e4724f7b
+      internalID: -1237223880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertNight_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 576
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21d125ddd0b8c94186ea677b5c87f7f
+      internalID: -1899863315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +208,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DesertNight_0: 1449111545
+      DesertNight_1: -1237223880
+      DesertNight_2: -1823448588
+      DesertNight_3: -1448404569
+      DesertNight_4: -1945262873
+      DesertNight_5: 733018499
+      DesertNight_6: 408422535
+      DesertNight_7: -1899863315
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

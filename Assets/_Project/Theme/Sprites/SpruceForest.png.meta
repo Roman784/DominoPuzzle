@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f9027e4a748dfe14ba2a1c3023df947a
+guid: bbbadd1a6147c394aabd122d5881fe30
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 116
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,34 +136,76 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UISprites_0
+      name: SpruceForestTheme_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 124
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 50, y: 50, z: 50, w: 50}
+        x: 0
+        y: 1334
+        width: 2056
+        height: 2422
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ece0fb5f8a841d45a59fcdaa229f2cd
-      internalID: 1591197890
+      spriteID: 265953041a18ec6449d4b2042b023d9c
+      internalID: -1039214019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UISprites_1
+      name: SpruceForestTheme_2
       rect:
         serializedVersion: 2
-        x: 37
-        y: 30
-        width: 68
-        height: 48
+        x: 0
+        y: 856
+        width: 2056
+        height: 420
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3ef8d38e86db44cac7b3fb9a58c0d2
+      internalID: -583486091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpruceForestTheme_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 214
+        width: 2056
+        height: 570
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc27a16c7a9486e4084f4793f6ad65e5
+      internalID: 39968427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpruceForestTheme_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 298
+        height: 113
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,197 +213,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf97f4ff8d4ed6a4b9c27a4ecd9b699e
-      internalID: -337800708
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_2
-      rect:
-        serializedVersion: 2
-        x: 156
-        y: 24
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2972352ac085df54c941001cbaa6a7c9
-      internalID: -910947935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_3
-      rect:
-        serializedVersion: 2
-        x: 257
-        y: 24
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f42df4adddf549a478ffb9626912874a
-      internalID: 1743709787
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_4
-      rect:
-        serializedVersion: 2
-        x: 351
-        y: 27
-        width: 57
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ccbb7f9991a96a439e5d27a752e6aef
-      internalID: -562221691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_5
-      rect:
-        serializedVersion: 2
-        x: 438
-        y: 23
-        width: 60
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 055a997dd0101d44fa9759794518b59f
-      internalID: -2096188662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_6
-      rect:
-        serializedVersion: 2
-        x: 519
-        y: 22
-        width: 64
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a1ee5eb317496e4e8df5b8138a4163a
-      internalID: 1630117760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_7
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 124
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 20, y: 20, z: 20, w: 20}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c3103a17a83c7c4290a58f5df402d4b
-      internalID: -1082186852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_8
-      rect:
-        serializedVersion: 2
-        x: 613
-        y: 24
-        width: 37
-        height: 53
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 940870bdd8f388843a715b3d842b44bd
-      internalID: -1310028937
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_9
-      rect:
-        serializedVersion: 2
-        x: 675
-        y: 24
-        width: 42
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2800a545abf90814098fe13783fca3a1
-      internalID: -959505848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UISprites_10
-      rect:
-        serializedVersion: 2
-        x: 749
-        y: 21
-        width: 48
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 45259ac6ffbe1344daeee9ef490e0012
-      internalID: 1371326910
+      spriteID: 0736bb2cb6b63c048be7d1e4b799912e
+      internalID: 1490529536
       vertices: []
       indices: 
       edges: []
@@ -377,17 +230,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UISprites_0: 1591197890
-      UISprites_1: -337800708
-      UISprites_10: 1371326910
-      UISprites_2: -910947935
-      UISprites_3: 1743709787
-      UISprites_4: -562221691
-      UISprites_5: -2096188662
-      UISprites_6: 1630117760
-      UISprites_7: -1082186852
-      UISprites_8: -1310028937
-      UISprites_9: -959505848
+      SpruceForestTheme_0: -1039214019
+      SpruceForestTheme_1: 43238130
+      SpruceForestTheme_2: -583486091
+      SpruceForestTheme_3: -980262125
+      SpruceForestTheme_4: 39968427
+      SpruceForestTheme_5: 1925711497
+      SpruceForestTheme_6: 1490529536
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

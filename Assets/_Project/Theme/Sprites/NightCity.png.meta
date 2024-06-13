@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b44d77bfe5d3a0a469ed70bde88f3f1f
+guid: 8d7251a1ca737ca4482f1ecd2074f762
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 116
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,7 +134,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: NightCity_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2332
+        width: 2063
+        height: 2422
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c956327a1ece4654d9d96452597230e6
+      internalID: 1361802673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCity_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1248
+        width: 2063
+        height: 1050
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1a89c48e3aaf45409273900be3738b6
+      internalID: -358903580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCity_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2063
+        height: 1113
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009380c5201cb9f4f945c50001bc642b
+      internalID: 462732881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +208,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NightCity_0: 1361802673
+      NightCity_1: -358903580
+      NightCity_2: 178964587
+      NightCity_3: 1902640047
+      NightCity_4: -1095871724
+      NightCity_5: -51359741
+      NightCity_6: 249087910
+      NightCity_7: 379046318
+      NightCity_8: 462732881
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

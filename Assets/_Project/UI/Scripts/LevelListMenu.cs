@@ -31,6 +31,7 @@ public class LevelListMenu : MonoBehaviour
     {
         LevelButton button = _diContainer.InstantiatePrefab(_levelButtonPrefab).GetComponent<LevelButton>();
         button.transform.SetParent(_listContext);
+        button.transform.localScale = Vector3.one;
 
         button.Init(levelNumber, isLocked);
     }
