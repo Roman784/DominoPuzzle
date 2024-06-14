@@ -18,6 +18,11 @@ public class ThemeSwitcher : MonoBehaviour
             Switch(1);
     }
 
+    public void SelectTheme()
+    {
+
+    }
+
     public void Switch(int step)
     {
         int previousIndex = _themeIndex;
