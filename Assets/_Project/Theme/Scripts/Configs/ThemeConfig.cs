@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ThemeConfig", menuName = "Configs/Theme")]
+[CreateAssetMenu(fileName = "ThemeConfig", menuName = "Configs/Theme/Theme")]
 public class ThemeConfig : ScriptableObject
 {
     [field: SerializeField] public Color MainColor {  get; private set; }

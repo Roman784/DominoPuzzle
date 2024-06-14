@@ -1057,6 +1057,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863545481}
   m_CullTransparentMesh: 1
+--- !u!1 &2140340170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2140340173}
+  - component: {fileID: 2140340172}
+  - component: {fileID: 2140340171}
+  m_Layer: 0
+  m_Name: SceneContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2140340171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140340170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c8bd8b1a097c7408acda240a3e157c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _themeCreationConfig: {fileID: 11400000, guid: 154bc487b5ed59c41ac67b43612987e3, type: 2}
+--- !u!114 &2140340172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140340170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 2140340171}
+  _installerPrefabs: []
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
+--- !u!4 &2140340173
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140340170}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2539062217064641118 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2691308831217116670, guid: 001a5d37af713de45926c2c0964e4b80, type: 3}
@@ -1080,13 +1158,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: DesertTheme
       objectReference: {fileID: 0}
+    - target: {fileID: 1584779604704303293, guid: 001a5d37af713de45926c2c0964e4b80, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8062494653509713492, guid: 001a5d37af713de45926c2c0964e4b80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8062494653509713492, guid: 001a5d37af713de45926c2c0964e4b80, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8062494653509713492, guid: 001a5d37af713de45926c2c0964e4b80, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1137,13 +1219,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: DesertNightTheme
       objectReference: {fileID: 0}
+    - target: {fileID: 307937266916508162, guid: 8fa7c50946fb6824ea1b99e47ff6e79b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6247552197058034847, guid: 8fa7c50946fb6824ea1b99e47ff6e79b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6247552197058034847, guid: 8fa7c50946fb6824ea1b99e47ff6e79b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6247552197058034847, guid: 8fa7c50946fb6824ea1b99e47ff6e79b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1207,7 +1293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572232803243805379, guid: 592ae92f072465541bd42c25039bde2d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 572232803243805379, guid: 592ae92f072465541bd42c25039bde2d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1241,13 +1327,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5078275069824343346, guid: 592ae92f072465541bd42c25039bde2d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6068348738673233045, guid: 592ae92f072465541bd42c25039bde2d, type: 3}
       propertyPath: m_Name
       value: SpruceForestTheme
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068348738673233045, guid: 592ae92f072465541bd42c25039bde2d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1277,13 +1363,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: NightCityTheme
       objectReference: {fileID: 0}
+    - target: {fileID: 2813035348111038876, guid: 0ec3222ebb8c54b4190ee13a2532674e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7257044293095964290, guid: 0ec3222ebb8c54b4190ee13a2532674e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7257044293095964290, guid: 0ec3222ebb8c54b4190ee13a2532674e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7257044293095964290, guid: 0ec3222ebb8c54b4190ee13a2532674e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1327,6 +1417,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1458145201}
+  - {fileID: 2140340173}
   - {fileID: 5849460384294343939}
   - {fileID: 2725913352418469087}
   - {fileID: 3251207143668211585}

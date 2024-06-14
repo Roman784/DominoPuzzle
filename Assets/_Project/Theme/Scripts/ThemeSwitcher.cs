@@ -7,7 +7,7 @@ public class ThemeSwitcher : MonoBehaviour
 
     private void Start()
     {
-        _themes[_themeIndex].Activate();
+        _themes[_themeIndex].ActivateFully();
     }
 
     private void Update()

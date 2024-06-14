@@ -14,6 +14,11 @@ public class GameplaySceneMenu : PanelMenu
         _hintGiver = hintGiver;
     }
 
+    public void ChangeTheme()
+    {
+        OpenScene(_sceneNames.ThemeOptions);
+    }
+
     public void OpenLevelList()
     {
         OpenScene(_sceneNames.LevelList);

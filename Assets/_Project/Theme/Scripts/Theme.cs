@@ -7,27 +7,38 @@ public class Theme : MonoBehaviour
 
     [Space]
 
-    [SerializeField] private GameObject _sprites;
+    [SerializeField] private GameObject _background;
+    [SerializeField] private GameObject _title;
 
     private Animator _animator;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-
-        _sprites.SetActive(false);
     }
 
     public ThemeConfig Config => _config;
 
-    public void Activate()
+    public void ActivateFully()
     {
-        _sprites.SetActive(true);
+        _background.SetActive(true);
+        _title.SetActive(true);
+    }
+
+    public void DeactivateTitle()
+    {
+        _title.SetActive(false);
+    }
+
+    public void DeactivateFully()
+    {
+        _background.SetActive(false);
+        _title.SetActive(false);
     }
 
     public void Appearance()
     {
-        Activate();
+        ActivateFully();
         _animator.SetTrigger("Appearance");
     }
 
