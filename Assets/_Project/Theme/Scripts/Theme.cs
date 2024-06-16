@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Theme : MonoBehaviour
 {
+    private int _id;
+
     [SerializeField] private ThemeConfig _config;
 
     [Space]
@@ -12,11 +14,14 @@ public class Theme : MonoBehaviour
 
     private Animator _animator;
 
-    private void Awake()
+    public void Init(int id)
     {
+        _id = id;
+
         _animator = GetComponent<Animator>();
     }
 
+    public int Id => _id;
     public ThemeConfig Config => _config;
 
     public void ActivateFully()
@@ -38,7 +43,6 @@ public class Theme : MonoBehaviour
 
     public void Appearance()
     {
-        ActivateFully();
         _animator.SetTrigger("Appearance");
     }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4926812310504426685}
   - component: {fileID: 9219116634130366559}
   - component: {fileID: 4187082511518341083}
+  - component: {fileID: 3491659616529214956}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 4187082511518341083}
+  - {fileID: 3491659616529214956}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -76,3 +78,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneTransitionEffect: {fileID: 4081954966529181727, guid: 549b2e6d21d9b9f468df7a95b9f12400, type: 3}
   _sceneNamesConfig: {fileID: 11400000, guid: 94fad605612162e4a97b66b6d0e0234b, type: 2}
+--- !u!114 &3491659616529214956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3168218790299249999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c8bd8b1a097c7408acda240a3e157c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _themeCreationConfig: {fileID: 11400000, guid: 154bc487b5ed59c41ac67b43612987e3, type: 2}

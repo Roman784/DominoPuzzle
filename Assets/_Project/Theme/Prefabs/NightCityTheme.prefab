@@ -347,7 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: 1eb61a3daffc30f4980a9c34085662c9, type: 2}
   _background: {fileID: 3646588077003289763}
-  _title: {fileID: 1851974215718588315}
+  _title: {fileID: 1154831096392848920}
 --- !u!1 &3646588077003289763
 GameObject:
   m_ObjectHideFlags: 0

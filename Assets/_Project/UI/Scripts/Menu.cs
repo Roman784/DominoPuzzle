@@ -5,15 +5,17 @@ using Zenject;
 
 public class Menu : MonoBehaviour
 {
+    protected SceneNamesConfig SceneNames;
     private SceneTransitionEffect _sceneTransitionEffect;
 
     [Inject]
-    private void Construct(SceneTransitionEffect sceneTransitionEffect)
+    private void Construct(SceneNamesConfig sceneNames, SceneTransitionEffect sceneTransitionEffect)
     {
+        SceneNames = sceneNames;
         _sceneTransitionEffect = sceneTransitionEffect;
     }
 
-    private void Start()
+    protected void Start()
     {
         _sceneTransitionEffect.Disappearance();
     }

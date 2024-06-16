@@ -12,27 +12,26 @@ public class ThemeCreator
     private void Construct(ThemeCreationConfig config)
     {
         _config = config;
-
-        Create(0);
     }
 
-    public void Set(int id)
-    {
-        if (_createdTheme != null)
-            GameObject.Destroy(_createdTheme.gameObject);
-
-        Create(id);
-    }
-
-    private void Create(int id)
+    public Theme Create(int id)
     {
         Theme prefab = GetThemePrefab(id);
 
-        if (prefab == null) return;
+        if (prefab == null) return null;
 
         Theme theme = GameObject.Instantiate(prefab, Vector2.zero, Quaternion.identity, null);
 
         _createdTheme = theme;
+
+        return theme;
+    }
+
+    public void DestroyCreatedTheme()
+    {
+        if (_createdTheme == null) return;
+
+        GameObject.Destroy(_createdTheme.gameObject);
     }
 
     private Theme GetThemePrefab(int id)
