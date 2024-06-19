@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a546eb676f3243a6d5952ba88cebd, type: 3}
   m_Name: SpruceForestThemeConfig
   m_EditorClassIdentifier: 
-  <MainColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  <MainColor>k__BackingField: {r: 0.97647065, g: 0.91372555, b: 0.73333335, a: 1}
   <TileFaceColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   <TileEdgeColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   <OneDotColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}

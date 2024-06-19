@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using Zenject;
 
 public class CurrentTheme
@@ -7,12 +9,14 @@ public class CurrentTheme
     private Theme _theme;
     private ThemeCreator _themeCreator;
 
+    public event Action<Theme> OnThemeChanged;
+
     [Inject]
     private void Construct(ThemeCreator themeCreator)
     {
         _themeCreator = themeCreator;
 
-        Create();
+        Create(id);
     }
 
     public Theme Theme => _theme;
@@ -23,11 +27,17 @@ public class CurrentTheme
         _theme?.Destroy();
     }
 
-    private void Create()
+    public void InvokeThemeChangedEvent(Theme theme)
     {
-        Theme theme = _themeCreator.Create(id);
+        OnThemeChanged?.Invoke(theme);
+    }
+
+    private void Create(int _id) // <-
+    {
+        Theme theme = _themeCreator.Create(_id);
         theme.DeactivateTitle();
 
         _theme = theme;
+        OnThemeChanged?.Invoke(theme);
     }
 }

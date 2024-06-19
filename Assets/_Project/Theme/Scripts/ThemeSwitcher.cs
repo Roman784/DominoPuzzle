@@ -7,12 +7,16 @@ public class ThemeSwitcher : SceneMenu
     private List<Theme> _themes = new List<Theme>();
     private int _themeIndex = 0;
 
-    private Theme _currentTheme => _themes[_themeIndex];
+    private Theme _current => _themes[_themeIndex];
+
+    private CurrentTheme _currentTheme;
 
     [Inject]
     private void Construct(ThemeCreator creator, ThemeCreationConfig creationConfig, CurrentTheme currentTheme)
     {
-        CreateThemes(creator, creationConfig, currentTheme);
+        _currentTheme = currentTheme;
+
+        CreateThemes(creator, creationConfig);
     }
 
     private void Update()
@@ -25,7 +29,8 @@ public class ThemeSwitcher : SceneMenu
 
     public void SelectTheme()
     {
-        CurrentTheme.id = _currentTheme.Id; // <- потом заменить на сохранение в бд.
+        CurrentTheme.id = _current.Id; // <- потом заменить на сохранение в бд.
+        _currentTheme.InvokeThemeChangedEvent(_current);
         OpenGameplayScene();
     }
 
@@ -36,14 +41,14 @@ public class ThemeSwitcher : SceneMenu
 
         ClampThemeIndex();
 
-        _currentTheme.Activate();
-        _currentTheme.Animation.Appearance();
+        _current.Activate();
+        _current.Animation.Appearance();
         _themes[previousIndex].Animation.Disappearance();
     }
 
-    private void CreateThemes(ThemeCreator creator, ThemeCreationConfig creationConfig, CurrentTheme currentTheme)
+    private void CreateThemes(ThemeCreator creator, ThemeCreationConfig creationConfig)
     {
-        currentTheme.Destroy();
+        _currentTheme.Destroy();
 
         foreach (var item in creationConfig.ThemePrefabsMap)
         {

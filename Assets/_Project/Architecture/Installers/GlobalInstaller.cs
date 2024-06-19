@@ -3,10 +3,6 @@ using Zenject;
 
 public class GlobalInstaller : MonoInstaller
 {
-    [SerializeField] private SceneTransitionEffect _sceneTransitionEffect;
-
-    [Space]
-
     [SerializeField] private SceneNamesConfig _sceneNamesConfig;
 
     public override void InstallBindings()
@@ -14,7 +10,6 @@ public class GlobalInstaller : MonoInstaller
         BindConfigs();
 
         BindOpeningLevelNumber();
-        BindSceneTransitionEffect();
     }
 
     private void BindConfigs()
@@ -25,10 +20,5 @@ public class GlobalInstaller : MonoInstaller
     private void BindOpeningLevelNumber()
     {
         Container.Bind<OpeningLevelNumber>().AsSingle();
-    }
-
-    private void BindSceneTransitionEffect()
-    {
-        Container.Bind<SceneTransitionEffect>().FromComponentInNewPrefab(_sceneTransitionEffect).AsSingle().NonLazy();
     }
 }

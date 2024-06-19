@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class SceneTransitionEffect : MonoBehaviour
 {
@@ -13,6 +15,26 @@ public class SceneTransitionEffect : MonoBehaviour
     [Space]
 
     [SerializeField] private Image _view;
+
+    private CurrentTheme _currentTheme;
+
+    [Inject]
+    private void Construct(CurrentTheme currentTheme)
+    {
+        _currentTheme = currentTheme;
+
+        SetViewColor(currentTheme.Theme);
+    }
+
+    private void OnEnable()
+    {
+        _currentTheme.OnThemeChanged += SetViewColor;
+    }
+
+    private void OnDisable()
+    {
+        _currentTheme.OnThemeChanged -= SetViewColor;
+    }
 
     public Coroutine Appearance()
     {
@@ -38,4 +60,10 @@ public class SceneTransitionEffect : MonoBehaviour
 
         _view.color = new Color(_view.color.r, _view.color.g, _view.color.b, curve.Evaluate(1));
     }
+
+    private void SetViewColor(Theme theme)
+    {
+        Color color = theme.Config.MainColor;
+        _view.color = color;
+    }   
 }
