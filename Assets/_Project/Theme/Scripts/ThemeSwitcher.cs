@@ -2,15 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class ThemeSwitcher : Menu
+public class ThemeSwitcher : SceneMenu
 {
-    [SerializeField] private List<Theme> _themes;
+    private List<Theme> _themes = new List<Theme>();
     private int _themeIndex = 0;
 
+    private Theme _currentTheme => _themes[_themeIndex];
+
     [Inject]
-    private void Construct(ThemeCreator creator, ThemeCreationConfig creationConfig)
+    private void Construct(ThemeCreator creator, ThemeCreationConfig creationConfig, CurrentTheme currentTheme)
     {
-        CreateThemes(creator, creationConfig);
+        CreateThemes(creator, creationConfig, currentTheme);
     }
 
     private void Update()
@@ -23,8 +25,8 @@ public class ThemeSwitcher : Menu
 
     public void SelectTheme()
     {
-        BackgroundCreator.id = _currentTheme.Id; // <- потом заменить на сохранение в бд.
-        OpenScene(SceneNames.GameplayScene);
+        CurrentTheme.id = _currentTheme.Id; // <- потом заменить на сохранение в бд.
+        OpenGameplayScene();
     }
 
     public void Switch(int step)
@@ -34,14 +36,14 @@ public class ThemeSwitcher : Menu
 
         ClampThemeIndex();
 
-        _currentTheme.ActivateFully();
-        _currentTheme.Appearance();
-        _themes[previousIndex].Disappearance();
+        _currentTheme.Activate();
+        _currentTheme.Animation.Appearance();
+        _themes[previousIndex].Animation.Disappearance();
     }
 
-    private void CreateThemes(ThemeCreator creator, ThemeCreationConfig creationConfig)
+    private void CreateThemes(ThemeCreator creator, ThemeCreationConfig creationConfig, CurrentTheme currentTheme)
     {
-        creator.DestroyCreatedTheme();
+        currentTheme.Destroy();
 
         foreach (var item in creationConfig.ThemePrefabsMap)
         {
@@ -50,24 +52,22 @@ public class ThemeSwitcher : Menu
             Theme theme = creator.Create(id);
 
             theme.Init(id);
-            theme.DeactivateFully();
+            theme.Deactivate();
 
             _themes.Add(theme);
         }
 
         for (int i = 0; i < _themes.Count; i++) // <-----------------------------------------------------------
         {
-            if (_themes[i].Id == BackgroundCreator.id)
+            if (_themes[i].Id == CurrentTheme.id)
             {
                 _themeIndex = i;
                 break;
             }
         }
 
-        _themes[_themeIndex].ActivateFully();
+        _themes[_themeIndex].Activate();
     }
-
-    private Theme _currentTheme => _themes[_themeIndex];
 
     private void ClampThemeIndex()
     {

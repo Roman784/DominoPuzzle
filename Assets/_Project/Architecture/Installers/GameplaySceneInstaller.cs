@@ -15,9 +15,12 @@ public class GameplaySceneInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindConfigs();
+
         BindTileBehavior();
         BindTileMatcher();
+
         BindHintGiver();
+
         BindFieldCreator();
     }
 

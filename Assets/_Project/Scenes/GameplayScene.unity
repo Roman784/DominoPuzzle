@@ -897,6 +897,7 @@ GameObject:
   - component: {fileID: 1291408493}
   - component: {fileID: 1291408492}
   - component: {fileID: 1291408494}
+  - component: {fileID: 1291408495}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -919,6 +920,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 1291408494}
+  - {fileID: 1291408495}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -968,6 +970,19 @@ MonoBehaviour:
   _fieldCreationConfig: {fileID: 11400000, guid: 503af784053ecb34da549d3643030005, type: 2}
   _fieldAnimationConfig: {fileID: 11400000, guid: 8395b75072f8abe478a43d99b22c1137, type: 2}
   _tileConfig: {fileID: 11400000, guid: 2180cecc5ee269a488caca658573bf8e, type: 2}
+--- !u!114 &1291408495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291408491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c8bd8b1a097c7408acda240a3e157c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _themeCreationConfig: {fileID: 11400000, guid: 154bc487b5ed59c41ac67b43612987e3, type: 2}
 --- !u!1 &1385505607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,8 +1067,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1593104740}
-        m_TargetAssemblyTypeName: GameplaySceneMenu, Assembly-CSharp
-        m_MethodName: OpenLevelList
+        m_TargetAssemblyTypeName: SceneMenu, Assembly-CSharp
+        m_MethodName: OpenLevelListScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1203,50 +1218,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panel: {fileID: 1593104738}
---- !u!1 &1609499256
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1609499258}
-  - component: {fileID: 1609499257}
-  m_Layer: 0
-  m_Name: Background
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1609499257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1609499256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd187664dd554144ae7d55799fc1e93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1609499258
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1609499256}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.112097, y: 6.469488, z: -10.366306}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1615944501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,8 +1302,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1593104740}
-        m_TargetAssemblyTypeName: GameplaySceneMenu, Assembly-CSharp
-        m_MethodName: ChangeTheme
+        m_TargetAssemblyTypeName: SceneMenu, Assembly-CSharp
+        m_MethodName: OpenThemeOptionsScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1793,4 +1764,3 @@ SceneRoots:
   - {fileID: 431588935}
   - {fileID: 150423277}
   - {fileID: 628920737}
-  - {fileID: 1609499258}

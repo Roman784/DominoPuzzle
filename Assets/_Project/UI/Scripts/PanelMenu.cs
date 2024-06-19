@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PanelMenu : Menu
+public class PanelMenu : SceneMenu
 {
     [SerializeField] private Panel _panel;
 

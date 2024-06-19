@@ -286,7 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0411629d254afbc44b2cadb5e6908f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _themes: []
 --- !u!224 &674291506
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1052,6 +1051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2140340173}
   - component: {fileID: 2140340172}
+  - component: {fileID: 2140340174}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1072,7 +1072,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 2140340174}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1105,6 +1106,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2140340174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140340170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c8bd8b1a097c7408acda240a3e157c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _themeCreationConfig: {fileID: 11400000, guid: 154bc487b5ed59c41ac67b43612987e3, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
