@@ -1,14 +1,13 @@
 using UnityEngine;
 using Zenject;
 
-public class GlobalInstaller : MonoInstaller
+public class SceneInstaller : MonoInstaller
 {
     [SerializeField] private SceneNamesConfig _sceneNamesConfig;
 
     public override void InstallBindings()
     {
         BindConfigs();
-
         BindOpeningLevelNumber();
     }
 

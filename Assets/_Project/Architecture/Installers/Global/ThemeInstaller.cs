@@ -9,8 +9,8 @@ public class ThemeInstaller : MonoInstaller
     {
         BindConfigs();
 
-        BindThemeCreator();
-        BindCurrentTheme();
+        BindCreator();
+        BindCurrent();
     }
 
     private void BindConfigs()
@@ -18,12 +18,12 @@ public class ThemeInstaller : MonoInstaller
         Container.Bind<ThemeCreationConfig>().FromInstance(_themeCreationConfig).AsSingle();
     }
 
-    private void BindThemeCreator()
+    private void BindCreator()
     {
         Container.Bind<ThemeCreator>().AsSingle().NonLazy();
     }
 
-    private void BindCurrentTheme()
+    private void BindCurrent()
     {
         Container.Bind<CurrentTheme>().AsSingle().NonLazy();
     }

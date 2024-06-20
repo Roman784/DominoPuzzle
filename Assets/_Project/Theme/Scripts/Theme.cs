@@ -32,6 +32,11 @@ public class Theme : MonoBehaviour
         _title.SetActive(true);
     }
 
+    public void ActivateBackground()
+    {
+        _background.SetActive(true);
+    }
+
     public void Deactivate()
     {
         _background.SetActive(false);
