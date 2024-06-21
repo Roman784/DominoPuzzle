@@ -17,12 +17,14 @@ public class Tile : MonoBehaviour
     private TileConfig _config;
 
     private Field _field;
+    private TileColorizer _colorizer;
 
     [Inject]
-    private void Construct(ITileBehavior behavior, TileConfig config)
+    private void Construct(ITileBehavior behavior, TileConfig config, TileColorizer colorizer)
     {
         _behavior = behavior;
         _config = config;
+        _colorizer = colorizer;
     }
 
     private void Awake()
@@ -34,6 +36,7 @@ public class Tile : MonoBehaviour
         _moving = new TileMoving(transform, _config.MoveSpeed);
         _animation = new TileAnimation(animator);
 
+        _colorizer.Color(Dots);
     }
 
     public void Init(Vector2Int coordinates, Field field)

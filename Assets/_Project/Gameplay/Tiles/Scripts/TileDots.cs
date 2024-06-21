@@ -48,8 +48,7 @@ public class TileDots : MonoBehaviour
     {
         foreach (var dot in dots)
         {
-            if (dot.Dot != null)
-                dot.Dot.SetActive(dot.IsActive);
+            dot.View?.gameObject.SetActive(dot.IsActive);
         }
     }
 }

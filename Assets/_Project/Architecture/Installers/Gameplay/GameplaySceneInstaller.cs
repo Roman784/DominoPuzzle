@@ -15,12 +15,8 @@ public class GameplaySceneInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindConfigs();
-
-        BindTileBehavior();
-        BindTileMatcher();
-
+        BindTileServices();
         BindHintGiver();
-
         BindFieldCreator();
     }
 
@@ -32,14 +28,11 @@ public class GameplaySceneInstaller : MonoInstaller
         Container.Bind<TileConfig>().FromInstance(_tileConfig).AsSingle();
     }
 
-    private void BindTileBehavior()
+    private void BindTileServices()
     {
         Container.Bind<ITileBehavior>().To<TileSwapBehavior>().AsSingle().NonLazy();
-    }
-
-    private void BindTileMatcher()
-    {
         Container.Bind<ITileMatcher>().To<MatchingTileMatcher>().AsSingle().NonLazy();
+        Container.Bind<TileColorizer>().AsSingle().NonLazy();
     }
 
     private void BindHintGiver()
