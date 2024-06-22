@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SpruceForestThemeConfig
   m_EditorClassIdentifier: 
   <MainColor>k__BackingField: {r: 0.97647065, g: 0.91372555, b: 0.73333335, a: 1}
-  <TileFaceColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-  <TileEdgeColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-  <OneDotColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-  <TwoDotColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-  <ThreeDotColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-  <FourDotColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  <TileFaceColor>k__BackingField: {r: 1, g: 0.99215686, b: 0.972549, a: 1}
+  <TileEdgeColor>k__BackingField: {r: 0.8509804, g: 0.654902, b: 0.7372549, a: 1}
+  <OneDotColor>k__BackingField: {r: 0.44918123, g: 0.6498833, b: 0.9245283, a: 1}
+  <TwoDotColor>k__BackingField: {r: 0.9433962, g: 0.71145594, b: 0.35154858, a: 1}
+  <ThreeDotColor>k__BackingField: {r: 0.4224813, g: 0.79594904, b: 0.8867924, a: 1}
+  <FourDotColor>k__BackingField: {r: 0.8584906, g: 0.4818886, b: 0.52084726, a: 1}

@@ -26,18 +26,30 @@ public class TileColorizer
         _colorsMap[4] = _themeConfig.FourDotColor;
     }
 
-    public void Color(IEnumerable<TileDot> dots)
+    public void Color(IEnumerable<TileDot> dots, SpriteRenderer face, SpriteRenderer edge)
     {
         ColorDots(dots);
+        ColorFace(face);
+        ColorEdge(edge);
     }
 
     private void ColorDots(IEnumerable<TileDot> dots)
     {
         int dotCount = dots.Count();
-
+        Debug.Log(dotCount);
         foreach (TileDot dot in dots)
         {
             dot.View.color = _colorsMap[dotCount];
         }
+    }
+
+    private void ColorFace(SpriteRenderer face)
+    {
+        face.color = _themeConfig.TileFaceColor;
+    }
+
+    private void ColorEdge(SpriteRenderer edge)
+    {
+        edge.color = _themeConfig.TileEdgeColor;
     }
 }
