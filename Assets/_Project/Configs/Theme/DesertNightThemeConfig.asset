@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MainColor>k__BackingField: {r: 0.3254902, g: 0.5058824, b: 0.76470596, a: 1}
   <TileFaceColor>k__BackingField: {r: 1, g: 0.99215686, b: 0.972549, a: 1}
-  <TileEdgeColor>k__BackingField: {r: 0.49733, g: 0.5578498, b: 0.8301887, a: 1}
+  <TileEdgeColor>k__BackingField: {r: 0.5333304, g: 0.58072275, b: 0.8018868, a: 1}
   <OneDotColor>k__BackingField: {r: 0.44918123, g: 0.6498833, b: 0.9245283, a: 1}
   <TwoDotColor>k__BackingField: {r: 0.9433962, g: 0.71145594, b: 0.35154858, a: 1}
   <ThreeDotColor>k__BackingField: {r: 0.4224813, g: 0.79594904, b: 0.8867924, a: 1}

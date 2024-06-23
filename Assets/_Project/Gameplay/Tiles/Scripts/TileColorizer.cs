@@ -36,7 +36,7 @@ public class TileColorizer
     private void ColorDots(IEnumerable<TileDot> dots)
     {
         int dotCount = dots.Count();
-        Debug.Log(dotCount);
+
         foreach (TileDot dot in dots)
         {
             dot.View.color = _colorsMap[dotCount];
