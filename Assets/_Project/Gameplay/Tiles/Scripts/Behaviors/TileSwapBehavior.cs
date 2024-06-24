@@ -47,17 +47,43 @@ public class TileSwapBehavior : ITileBehavior
         _selectedTile = null;
     }
 
-    private void Swap(Tile tile1, Tile tile2)
+    public void Swap(Tile tile1, Tile tile2)
     {
-        Vector2Int coordinates = tile1.Coordinates;
-        Vector2 position = tile1.transform.position;
+        TileData tileData1 = new TileData(tile1, _field);
+        TileData tileData2 = new TileData(tile2, _field);
 
-        _field.SetTile(tile1, tile2.Coordinates);
-        _field.SetTile(tile2, coordinates);
+        _field.SetTile(tile1, tileData2.Coordinates);
+        _field.SetTile(tile2, tileData1.Coordinates);
 
-        tile1.Moving.Move(tile2.transform.position);
-        tile2.Moving.Move(position);
+        tile1.Moving.Move(tileData2.Position);
+        tile2.Moving.Move(tileData1.Position);
 
         OnCompleted?.Invoke();
+    }
+
+    public void InstantSwap(Tile tile1, Tile tile2)
+    {
+        TileData tileData1 = new TileData(tile1, _field);
+        TileData tileData2 = new TileData(tile2, _field);
+
+        _field.SetTile(tile1, tileData2.Coordinates);
+        _field.SetTile(tile2, tileData1.Coordinates);
+
+        tile1.transform.position = tileData2.Position;
+        tile2.transform.position = tileData1.Position;
+
+        OnCompleted?.Invoke();
+    }
+
+    private struct TileData
+    {
+        public Vector2Int Coordinates;
+        public Vector2 Position;
+
+        public TileData(Tile tile, Field field)
+        {
+            Coordinates = tile.Coordinates;
+            Position = field.GetTilePosition(tile.Coordinates);
+        }
     }
 }

@@ -10,42 +10,42 @@ public class Field : MonoBehaviour
     private List<Tile> _tiles = new List<Tile>();
 
     private float _tileSpacing;
+    private Vector2 _minTilePosition;
 
-    private FieldShuffler _shuffler;
+    private IFieldShuffling _shuffling;
     private FieldAnimation _animation;
     private FieldAnimationConfig _animationConfig;
 
     [Inject]
-    private void Construct(FieldConfig config, FieldAnimationConfig animationConfig)
+    private void Construct(FieldConfig config, FieldAnimationConfig animationConfig, IFieldShuffling shuffling)
     {
         _tileSpacing = config.TileSpacing;
         _animationConfig = animationConfig;
+        _shuffling = shuffling;
     }
 
     private void Awake()
     {
-        _shuffler = new FieldShuffler(this);
         _animation = new FieldAnimation(this, _animationConfig);
     }
 
     private void Start()
     {
         _tiles = FindObjectsOfType<Tile>().ToList();
+        _minTilePosition = GetMinimalTilePosition(_tiles);
 
-        InitTiles(_tiles);
+        InitTiles(_tiles, _minTilePosition);
         SetCorrectTilesMap(_tilesMap);
 
-        _shuffler.Shuffle();
+        _shuffling.InstantShuffle(_tiles);
         _animation.TileAppearance();
     }
 
-    private void InitTiles(List<Tile> tiles)
+    private void InitTiles(List<Tile> tiles, Vector2 minTilePosition)
     {
-        Vector2 minPosition = GetMinimalTilePosition(tiles);
-
         foreach (Tile tile in tiles)
         {
-            Vector2 relativePosition = (Vector2)tile.transform.position - minPosition;
+            Vector2 relativePosition = (Vector2)tile.transform.position - minTilePosition;
             Vector2Int coordinates = RoundVectorToInt(relativePosition / _tileSpacing);
 
             _tilesMap.Add(coordinates, tile);
@@ -56,8 +56,15 @@ public class Field : MonoBehaviour
     public IReadOnlyDictionary<Vector2Int, Tile> TilesMap => _tilesMap;
     public IReadOnlyDictionary<Vector2Int, Tile> CorrectTilesMap => _correctTilesMap;
     public IEnumerable<Tile> Tiles => _tiles;
-    public FieldShuffler Shuffler => _shuffler;
     public FieldAnimation Animation => _animation;
+
+    public Vector2 GetTilePosition(Vector2Int coordinates)
+    {
+        Vector2 relativePosition = (Vector2)coordinates * _tileSpacing;
+        Vector2 position = _minTilePosition + relativePosition;
+
+        return position;
+    }
 
     public void SetTile(Tile tile, Vector2Int coordinates)
     {

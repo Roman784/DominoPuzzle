@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TileAppearanceDelay>k__BackingField: 0.035
   <TileDisappearanceDelay>k__BackingField: 0.035
+  <TileShufflingDelay>k__BackingField: 0.075

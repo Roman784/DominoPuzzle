@@ -6,6 +6,8 @@ public class TileMoving
     private Transform _transform;
     private float _speed;
 
+    private Coroutine _currentRoutine;
+
     public TileMoving(Transform transform, float speed)
     {
         _transform = transform;
@@ -14,7 +16,10 @@ public class TileMoving
 
     public void Move(Vector2 position)
     {
-        Coroutines.StartRoutine(MoveRoutine(position));
+        if (_currentRoutine != null)
+            Coroutines.StopRoutine(_currentRoutine);
+
+        _currentRoutine = Coroutines.StartRoutine(MoveRoutine(position));
     }
 
     private IEnumerator MoveRoutine(Vector2 position)
