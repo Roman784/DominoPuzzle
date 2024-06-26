@@ -1,8 +1,10 @@
-using UnityEngine;
+using System;
 using Zenject;
 
-public class LevelCompletionTracker : MonoBehaviour
+public class LevelCompletionHandler : IInitializable, IDisposable
 {
+    private bool _isCompleted;
+
     private Field _field;
     private ITileBehavior _tileBehavior;
     private ITileMatcher _tileMatcher;
@@ -15,23 +17,33 @@ public class LevelCompletionTracker : MonoBehaviour
         _tileMatcher = tileMatcher;
     }
 
-    private void OnEnable()
+    public void Initialize()
     {
+        _isCompleted = false;
+
         _tileBehavior.OnCompleted += MatchTiles;
     }
 
-    private void OnDisable()
+    public void Dispose()
     {
         _tileBehavior.OnCompleted -= MatchTiles;
     }
+
+    public bool IsCompleted => _isCompleted;
 
     private void MatchTiles()
     {
         bool isMatched = _tileMatcher.MatchTiles();
 
         if (isMatched)
-        {
-            _field.Animation.TileDisappearance();
-        }
+            CompleteLevel();
+    }
+
+    private void CompleteLevel()
+    {
+        if (_isCompleted) return;
+        _isCompleted = true;
+
+        _field.Animation.TileDisappearance();
     }
 }

@@ -19,6 +19,7 @@ public class GameplaySceneInstaller : MonoInstaller
         BindHint();
         BindFieldShuffling();
         BindFieldCreator();
+        BindLevelCompletionHandler();
     }
 
     private void BindConfigs()
@@ -50,5 +51,10 @@ public class GameplaySceneInstaller : MonoInstaller
     {
         Field prefab = _fieldCreationConfig.FieldPrefabsMap[0].Prefab;
         Container.Bind<Field>().FromComponentInNewPrefab(prefab).AsSingle().NonLazy();
+    }
+
+    private void BindLevelCompletionHandler()
+    {
+        Container.BindInterfacesAndSelfTo<LevelCompletionHandler>().AsSingle().NonLazy();
     }
 }
