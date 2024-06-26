@@ -16,7 +16,7 @@ public class GameplaySceneInstaller : MonoInstaller
     {
         BindConfigs();
         BindTileServices();
-        BindHintGiver();
+        BindHint();
         BindFieldShuffling();
         BindFieldCreator();
     }
@@ -36,9 +36,9 @@ public class GameplaySceneInstaller : MonoInstaller
         Container.Bind<TileColorizer>().AsSingle().NonLazy();
     }
 
-    private void BindHintGiver()
+    private void BindHint()
     {
-        Container.Bind<HintGiver>().AsSingle().NonLazy();
+        Container.Bind<IHint>().To<TileSwapHint>().AsSingle().NonLazy();
     }
 
     private void BindFieldShuffling()

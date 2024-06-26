@@ -1,28 +1,24 @@
+using System;
 using UnityEngine;
 using Zenject;
 
-public class HintGiver
+public class TileSwapHint : IHint
 {
     private Field _field;
-    private ITileBehavior _tileBehavior;
+    private TileSwapBehavior _tileSwap;
 
     [Inject]
     private void Construct(FieldCreator fieldCreator, ITileBehavior tileBehavior)
     {
+        if (tileBehavior is not TileSwapBehavior)
+            throw new Exception("Ñonflict of tile behavior and hints.");
+
+        _tileSwap = (TileSwapBehavior)tileBehavior;
         _field = fieldCreator.CreatedField;
-        _tileBehavior = tileBehavior;
     }
 
-    public void UseHint()
+    public void Use()
     {
-        if (_tileBehavior is TileSwapBehavior)
-            UseHintForSwapTileBehavior();
-    }
-
-    private void UseHintForSwapTileBehavior()
-    {
-        TileSwapBehavior tileSwap = (TileSwapBehavior)_tileBehavior;
-
         foreach (var item in _field.CorrectTilesMap)
         {
             Tile tile = item.Value;
@@ -32,7 +28,7 @@ public class HintGiver
             {
                 Tile tile2 = _field.TilesMap[coordinates];
 
-                tileSwap.Swap(tile, tile2);
+                _tileSwap.Swap(tile, tile2);
                 tile.Locker.Lock();
 
                 break;

@@ -4,14 +4,14 @@ using Zenject;
 public class GameplaySceneMenu : PanelMenu
 {
     private Field _field;
-    private HintGiver _hintGiver;
+    private IHint _hint;
     private IFieldShuffling _shuffling;
 
     [Inject]
-    private void Constructor(FieldCreator fieldCreator, HintGiver hintGiver, IFieldShuffling shuffling)
+    private void Constructor(FieldCreator fieldCreator, IHint hint, IFieldShuffling shuffling)
     {
         _field = fieldCreator.CreatedField;
-        _hintGiver = hintGiver;
+        _hint = hint;
         _shuffling = shuffling;
     }
 
@@ -23,6 +23,6 @@ public class GameplaySceneMenu : PanelMenu
 
     public void UseHint()
     {
-        _hintGiver.UseHint();
+        _hint.Use();
     }
 }

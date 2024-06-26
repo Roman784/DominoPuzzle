@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,10 @@ public class FieldSwapShuffling : IFieldShuffling
     [Inject]
     private void Construct(ITileBehavior tileBehavior, FieldAnimationConfig animationConfig)
     {
-        if (tileBehavior is TileSwapBehavior)
-            _tileSwap = (TileSwapBehavior)tileBehavior;
+        if (tileBehavior is not TileSwapBehavior)
+            throw new Exception("Ñonflict of tile behavior and field shuffling.");
 
+        _tileSwap = (TileSwapBehavior)tileBehavior;
         _tileShufflingDelay = animationConfig.TileShufflingDelay;
     }
 
@@ -31,7 +33,7 @@ public class FieldSwapShuffling : IFieldShuffling
     {
         for (int i = 0; i < tiles.Count / 2; i++)
         {
-            int j = Random.Range(tiles.Count / 2, tiles.Count);
+            int j = UnityEngine.Random.Range(tiles.Count / 2, tiles.Count);
 
             Tile tile1 = tiles[i];
             Tile tile2 = tiles[j];
