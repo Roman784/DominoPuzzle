@@ -24,13 +24,10 @@ public class Field : MonoBehaviour
         _shuffling = shuffling;
     }
 
-    private void Awake()
-    {
-        _animation = new FieldAnimation(this, _animationConfig);
-    }
-
     private void Start()
     {
+        _animation = new FieldAnimation(this, _animationConfig);
+
         _tiles = FindObjectsOfType<Tile>().ToList();
         _minTilePosition = GetMinimalTilePosition(_tiles);
 
@@ -49,7 +46,7 @@ public class Field : MonoBehaviour
             Vector2Int coordinates = RoundVectorToInt(relativePosition / _tileSpacing);
 
             _tilesMap.Add(coordinates, tile);
-            tile.Init(coordinates, this);
+            tile.Init(coordinates);
         }
     }
 

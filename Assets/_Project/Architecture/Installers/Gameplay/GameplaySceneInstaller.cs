@@ -31,23 +31,24 @@ public class GameplaySceneInstaller : MonoInstaller
 
     private void BindTileServices()
     {
-        Container.Bind<ITileBehavior>().To<TileSwapBehavior>().AsSingle().NonLazy();
-        Container.Bind<ITileMatcher>().To<MatchingTileMatcher>().AsSingle().NonLazy();
-        Container.Bind<TileColorizer>().AsSingle().NonLazy();
+        Container.Bind<ITileBehavior>().To<TileSwapBehavior>().AsSingle();
+        Container.Bind<ITileMatcher>().To<MatchingTileMatcher>().AsSingle();
+        Container.Bind<TileColorizer>().AsSingle();
     }
 
     private void BindHint()
     {
-        Container.Bind<IHint>().To<TileSwapHint>().AsSingle().NonLazy();
+        Container.Bind<IHint>().To<TileSwapHint>().AsSingle();
     }
 
     private void BindFieldShuffling()
     {
-        Container.Bind<IFieldShuffling>().To<FieldSwapShuffling>().AsSingle().NonLazy();
+        Container.Bind<IFieldShuffling>().To<FieldSwapShuffling>().AsSingle();
     }
 
     private void BindFieldCreator()
     {
-        Container.Bind<FieldCreator>().FromComponentInNewPrefab(_fieldCreatorPrefab).AsSingle().NonLazy();
+        Field prefab = _fieldCreationConfig.FieldPrefabsMap[0].Prefab;
+        Container.Bind<Field>().FromComponentInNewPrefab(prefab).AsSingle().NonLazy();
     }
 }

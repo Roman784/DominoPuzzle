@@ -19,9 +19,9 @@ public class MatchingTileMatcher : ITileMatcher
     private Field _field;
 
     [Inject]
-    private void Construct(FieldCreator fieldCreator)
+    private void Construct(Field field)
     {
-        _field = fieldCreator.CreatedField;
+        _field = field;
     }
 
     private MatchingTileMatcher()

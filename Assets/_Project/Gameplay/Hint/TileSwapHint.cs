@@ -8,13 +8,13 @@ public class TileSwapHint : IHint
     private TileSwapBehavior _tileSwap;
 
     [Inject]
-    private void Construct(FieldCreator fieldCreator, ITileBehavior tileBehavior)
+    private void Construct(Field field, ITileBehavior tileBehavior)
     {
         if (tileBehavior is not TileSwapBehavior)
             throw new Exception("Ñonflict of tile behavior and hints.");
 
         _tileSwap = (TileSwapBehavior)tileBehavior;
-        _field = fieldCreator.CreatedField;
+        _field = field;
     }
 
     public void Use()

@@ -12,19 +12,19 @@ public class Tile : MonoBehaviour
     private TileLocker _locker;
     private TileMoving _moving;
     private TileAnimation _animation;
-    
-    private ITileBehavior _behavior;
-    private TileConfig _config;
 
     private Field _field;
+    private ITileBehavior _behavior;
+    private TileConfig _config;
     private TileColorizer _colorizer;
 
     [SerializeField] private SpriteRenderer _faceView;
     [SerializeField] private SpriteRenderer _edgeView;
 
     [Inject]
-    private void Construct(ITileBehavior behavior, TileConfig config, TileColorizer colorizer)
+    private void Construct(Field field, ITileBehavior behavior, TileConfig config, TileColorizer colorizer)
     {
+        _field = field;
         _behavior = behavior;
         _config = config;
         _colorizer = colorizer;
@@ -40,10 +40,9 @@ public class Tile : MonoBehaviour
         _animation = new TileAnimation(animator);
     }
 
-    public void Init(Vector2Int coordinates, Field field)
+    public void Init(Vector2Int coordinates)
     {
         _coordinates = coordinates;
-        _field = field;
 
         _colorizer.Color(Dots, _faceView, _edgeView);
     }

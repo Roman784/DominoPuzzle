@@ -11,9 +11,9 @@ public class TileSwapBehavior : ITileBehavior
     private Field _field;
 
     [Inject]
-    private void Construct(FieldCreator fieldCreator)
+    private void Construct(Field field)
     {
-        _field = fieldCreator.CreatedField;
+        _field = field;
     }
 
     public void OnClick(Tile tile)

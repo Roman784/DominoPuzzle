@@ -4,15 +4,13 @@ using Zenject;
 public class LevelCompletionTracker : MonoBehaviour
 {
     private Field _field;
-
     private ITileBehavior _tileBehavior;
     private ITileMatcher _tileMatcher;
 
     [Inject]
-    private void Construct(FieldCreator fieldCreator, ITileBehavior tileBehavior, ITileMatcher tileMatcher)
+    private void Construct(Field field, ITileBehavior tileBehavior, ITileMatcher tileMatcher)
     {
-        _field = fieldCreator.CreatedField;
-
+        _field = field;
         _tileBehavior = tileBehavior;
         _tileMatcher = tileMatcher;
     }

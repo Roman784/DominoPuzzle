@@ -8,9 +8,9 @@ public class GameplaySceneMenu : PanelMenu
     private IFieldShuffling _shuffling;
 
     [Inject]
-    private void Constructor(FieldCreator fieldCreator, IHint hint, IFieldShuffling shuffling)
+    private void Constructor(Field field, IHint hint, IFieldShuffling shuffling)
     {
-        _field = fieldCreator.CreatedField;
+        _field = field;
         _hint = hint;
         _shuffling = shuffling;
     }
