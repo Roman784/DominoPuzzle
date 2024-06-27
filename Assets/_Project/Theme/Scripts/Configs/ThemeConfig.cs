@@ -10,4 +10,5 @@ public class ThemeConfig : ScriptableObject
     [field: SerializeField] public Color TwoDotColor { get; private set; }
     [field: SerializeField] public Color ThreeDotColor { get; private set; }
     [field: SerializeField] public Color FourDotColor { get; private set; }
+    [field: SerializeField] public AudioClip Soundtrack { get; private set; }
 }

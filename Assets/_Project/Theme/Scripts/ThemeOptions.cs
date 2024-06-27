@@ -23,6 +23,7 @@ public class ThemeOptions
         SetViewedThemeIndex();
 
         _viewedTheme.Activate();
+        _viewedTheme.Sound.PlaySoundtrack();
     }
 
     public void Select()
@@ -35,12 +36,14 @@ public class ThemeOptions
     public void Switch(int step)
     {
         _viewedTheme.Animation.Disappearance();
+        _viewedTheme.Sound.StopSoundtrack();
 
         _viewedThemeIndex += step;
         ClampViewedThemeIndex();
 
         _viewedTheme.Activate();
         _viewedTheme.Animation.Appearance();
+        _viewedTheme.Sound.PlaySoundtrack();
     }
 
     private void CreateOptions()
