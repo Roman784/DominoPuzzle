@@ -7,6 +7,8 @@ public class ThemeSound
     private AudioSource _soundtrackPlayer;
     private AudioClip _soundtrack;
 
+    private Coroutine _currentRoutine;
+
     public ThemeSound(AudioSource soundtrackPlayer, ThemeConfig config)
     {
         _soundtrackPlayer = soundtrackPlayer;
@@ -18,12 +20,15 @@ public class ThemeSound
     public void PlaySoundtrack()
     {
         _soundtrackPlayer.Play();
-        Coroutines.StartRoutine(ChangeSoundtrackVolume(0f, 1f, 2f, () => { }));
+
+        StopCurrentRoutine();
+        _currentRoutine = Coroutines.StartRoutine(ChangeSoundtrackVolume(0f, 1f, 2f, () => { }));
     }
 
     public void StopSoundtrack()
     {
-        Coroutines.StartRoutine(ChangeSoundtrackVolume(1f, 0f, 2f, () => _soundtrackPlayer.Stop()));
+        StopCurrentRoutine();
+        _currentRoutine = Coroutines.StartRoutine(ChangeSoundtrackVolume(1f, 0f, 2f, () => _soundtrackPlayer.Stop()));
     }
 
     private IEnumerator ChangeSoundtrackVolume(float from, float to, float duration, Action callback)
@@ -41,5 +46,11 @@ public class ThemeSound
         _soundtrackPlayer.volume = to;
 
         callback?.Invoke();
+    }
+
+    private void StopCurrentRoutine()
+    {
+        if (_currentRoutine != null)
+            Coroutines.StopRoutine(_currentRoutine);
     }
 }

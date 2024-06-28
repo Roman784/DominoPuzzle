@@ -19,4 +19,4 @@ MonoBehaviour:
   <TwoDotColor>k__BackingField: {r: 0.9433962, g: 0.71145594, b: 0.35154858, a: 1}
   <ThreeDotColor>k__BackingField: {r: 0.4224813, g: 0.79594904, b: 0.8867924, a: 1}
   <FourDotColor>k__BackingField: {r: 0.8584906, g: 0.4818886, b: 0.52084726, a: 1}
-  <Soundtrack>k__BackingField: {fileID: 8300000, guid: 6d43451a1f7227f4ca844a698a2aa9cd, type: 3}
+  <Soundtrack>k__BackingField: {fileID: 8300000, guid: 96eb10d33b7cc534a84e767c51a5c0b4, type: 3}
