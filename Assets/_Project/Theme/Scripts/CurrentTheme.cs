@@ -14,19 +14,25 @@ public class CurrentTheme
     {
         _themeCreator = themeCreator;
 
-        SetTheme(0); // <- id θη αδ
+        Set(0); // <- id θη αδ
+
+        _theme.ActivateBackground();
+        _theme.DeactivateTitle();
+        _theme.Sound.PlaySoundtrack();
     }
 
     public Theme Theme => _theme;
     public ThemeConfig Config => _theme.Config;
 
-    public void SetTheme(int id)
+    public void Set(int id)
+    {
+        Theme theme = _themeCreator.Create(id);
+        SetExisting(theme);
+    }
+
+    public void SetExisting(Theme theme)
     {
         _theme?.Destroy();
-
-        Theme theme = _themeCreator.Create(id);
-        theme.DeactivateTitle();
-        theme.Sound.PlaySoundtrack();
 
         GameObject.DontDestroyOnLoad(theme);
 

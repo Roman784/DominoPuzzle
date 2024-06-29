@@ -17,21 +17,16 @@ public class ThemeOptions
         _creator = creator;
         _creationConfig = creationConfig;
 
-        _currentTheme.Theme.Deactivate();
-        _currentTheme.Theme.Sound.StopSoundtrack();
-
+        _currentTheme.Theme.Activate();
         CreateOptions();
-        SetViewedThemeIndex();
-
-        _viewedTheme.Activate();
-        _viewedTheme.Sound.PlaySoundtrack();
     }
 
     public void Select()
     {
         // id заменить на сохранение в бд.
-        _currentTheme.SetTheme(_viewedTheme.Id);
+        _currentTheme.SetExisting(_viewedTheme);
         _currentTheme.Theme.ActivateBackground();
+        _currentTheme.Theme.DeactivateTitle();
     }
 
     public void Switch(int step)
@@ -49,9 +44,17 @@ public class ThemeOptions
 
     private void CreateOptions()
     {
+        int i = 0;
         foreach (var item in _creationConfig.ThemePrefabsMap)
         {
             int id = item.Id;
+
+            if (id == _currentTheme.Theme.Id)
+            {
+                _themes.Add(_currentTheme.Theme);
+                _viewedThemeIndex = i;
+                continue;
+            }
 
             Theme theme = _creator.Create(id);
 
@@ -59,19 +62,8 @@ public class ThemeOptions
             theme.Deactivate();
 
             _themes.Add(theme);
-        }
-    }
 
-    // Sets from the database.
-    private void SetViewedThemeIndex()
-    {
-        for (int i = 0; i < _themes.Count; i++) // <-----------------------------------------------------------
-        {
-            if (_themes[i].Id == 0) // <- id из бд
-            {
-                _viewedThemeIndex = i;
-                break;
-            }
+            i++;
         }
     }
 
