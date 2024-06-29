@@ -31,6 +31,7 @@ public class FieldAnimation
         foreach (Tile tile in _field.Tiles)
         {
             tile.Animation.Appearance();
+            tile.Sound.PlayFallSound();
 
             yield return new WaitForSeconds(_tileAppearanceDelay);
         }

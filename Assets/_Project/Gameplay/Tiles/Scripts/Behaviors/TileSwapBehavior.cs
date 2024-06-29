@@ -58,6 +58,8 @@ public class TileSwapBehavior : ITileBehavior
         tile1.Moving.Move(tileData2.Position);
         tile2.Moving.Move(tileData1.Position);
 
+        tile1.Sound.PlayFallSound();
+
         OnCompleted?.Invoke();
     }
 

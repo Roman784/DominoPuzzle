@@ -12,22 +12,25 @@ public class Tile : MonoBehaviour
     private TileLocker _locker;
     private TileMoving _moving;
     private TileAnimation _animation;
+    private TileSound _sound;
 
     private Field _field;
     private ITileBehavior _behavior;
     private TileConfig _config;
     private TileColorizer _colorizer;
+    private AudioPlayer _audioPlayer;
 
     [SerializeField] private SpriteRenderer _faceView;
     [SerializeField] private SpriteRenderer _edgeView;
 
     [Inject]
-    private void Construct(Field field, ITileBehavior behavior, TileConfig config, TileColorizer colorizer)
+    private void Construct(Field field, ITileBehavior behavior, TileConfig config, TileColorizer colorizer, AudioPlayer audioPlayer)
     {
         _field = field;
         _behavior = behavior;
         _config = config;
         _colorizer = colorizer;
+        _audioPlayer = audioPlayer;
     }
 
     private void Awake()
@@ -38,6 +41,7 @@ public class Tile : MonoBehaviour
         _locker = GetComponent<TileLocker>();
         _moving = new TileMoving(transform, _config.MoveSpeed);
         _animation = new TileAnimation(animator);
+        _sound = new TileSound(_audioPlayer, _config);
     }
 
     public void Init(Vector2Int coordinates)
@@ -52,6 +56,7 @@ public class Tile : MonoBehaviour
     public TileLocker Locker => _locker;
     public TileMoving Moving => _moving;
     public TileAnimation Animation => _animation;
+    public TileSound Sound => _sound;
 
     public void SetCoordinates(Vector2Int coordinates)
     {
