@@ -18,6 +18,7 @@ public class ThemeOptions
         _creationConfig = creationConfig;
 
         _currentTheme.Theme.Deactivate();
+        _currentTheme.Theme.Sound.StopSoundtrack();
 
         CreateOptions();
         SetViewedThemeIndex();

@@ -26,6 +26,7 @@ public class CurrentTheme
 
         Theme theme = _themeCreator.Create(id);
         theme.DeactivateTitle();
+        theme.Sound.PlaySoundtrack();
 
         GameObject.DontDestroyOnLoad(theme);
 

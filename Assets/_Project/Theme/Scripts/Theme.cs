@@ -19,14 +19,17 @@ public class Theme : MonoBehaviour
     private ThemeAnimation _animation;
     private ThemeSound _sound;
 
-    public void Init(int id)
+    private void Awake()
     {
-        _id = id;
-
         Animator animator = GetComponent<Animator>();
 
         _animation = new ThemeAnimation(animator);
         _sound = new ThemeSound(_soundtrackPlayer, _config);
+    }
+
+    public void Init(int id)
+    {
+        _id = id;
     }
 
     public int Id => _id;
