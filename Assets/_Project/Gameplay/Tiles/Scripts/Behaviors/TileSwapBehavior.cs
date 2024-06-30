@@ -26,6 +26,7 @@ public class TileSwapBehavior : ITileBehavior
 
         if (tile == _selectedTile)
         {
+            _selectedTile.Sound.PlayFallSound();
             Deselect();
             return;
         }

@@ -28,11 +28,15 @@ public class FieldAnimation
 
     private IEnumerator TileAppearanceRoutine()
     {
+        yield return new WaitForSeconds(0.2f);
+
+        int i = 0;
         foreach (Tile tile in _field.Tiles)
         {
             tile.Animation.Appearance();
-            tile.Sound.PlayFallSound();
+            if (i % 2 == 1) tile.Sound.PlayFallSound();
 
+            i++;
             yield return new WaitForSeconds(_tileAppearanceDelay);
         }
     }

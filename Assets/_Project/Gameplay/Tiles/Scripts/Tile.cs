@@ -41,7 +41,7 @@ public class Tile : MonoBehaviour
         _locker = GetComponent<TileLocker>();
         _moving = new TileMoving(transform, _config.MoveSpeed);
         _animation = new TileAnimation(animator);
-        _sound = new TileSound(_audioPlayer, _config);
+        _sound = new TileSound(_config, _audioPlayer);
     }
 
     public void Init(Vector2Int coordinates)
