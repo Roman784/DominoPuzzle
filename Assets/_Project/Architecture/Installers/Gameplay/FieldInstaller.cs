@@ -6,7 +6,7 @@ public class FieldInstaller : MonoInstaller
     [SerializeField] private FieldConfig _fieldConfig;
     [SerializeField] private FieldCreationConfig _fieldCreationConfig;
     [SerializeField] private FieldAnimationConfig _fieldAnimationConfig;
-
+    [SerializeField] private FieldSoundConfig _fieldSoundConfig;
 
     public override void InstallBindings()
     {
@@ -20,6 +20,7 @@ public class FieldInstaller : MonoInstaller
         Container.Bind<FieldConfig>().FromInstance(_fieldConfig).AsSingle();
         Container.Bind<FieldCreationConfig>().FromInstance(_fieldCreationConfig).AsSingle();
         Container.Bind<FieldAnimationConfig>().FromInstance(_fieldAnimationConfig).AsSingle();
+        Container.Bind<FieldSoundConfig>().FromInstance(_fieldSoundConfig).AsSingle();
     }
 
     private void BindFieldShuffling()

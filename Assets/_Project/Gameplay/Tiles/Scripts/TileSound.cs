@@ -15,4 +15,9 @@ public class TileSound
     {
         _audioPlayer.Play(_config.FallSound);
     }
+
+    public void PlayLiftSound()
+    {
+        _audioPlayer.Play(_config.LiftSound);
+    }
 }

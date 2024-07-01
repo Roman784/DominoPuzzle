@@ -14,19 +14,27 @@ public class Field : MonoBehaviour
 
     private IFieldShuffling _shuffling;
     private FieldAnimation _animation;
+    private FieldSound _sound;
     private FieldAnimationConfig _animationConfig;
+    private FieldSoundConfig _soundConfig;
+
+    private AudioPlayer _audioPlayer;
 
     [Inject]
-    private void Construct(FieldConfig config, FieldAnimationConfig animationConfig, IFieldShuffling shuffling)
+    private void Construct(FieldConfig config, FieldAnimationConfig animationConfig, FieldSoundConfig soundConfig, IFieldShuffling shuffling, AudioPlayer audioPlayer)
     {
         _tileSpacing = config.TileSpacing;
         _animationConfig = animationConfig;
+        _soundConfig = soundConfig;
         _shuffling = shuffling;
+
+        _audioPlayer = audioPlayer;
     }
 
     private void Start()
     {
         _animation = new FieldAnimation(this, _animationConfig);
+        _sound = new FieldSound(this, _soundConfig, _animationConfig, _audioPlayer);
 
         _tiles = FindObjectsOfType<Tile>().ToList();
         _minTilePosition = GetMinimalTilePosition(_tiles);
@@ -36,6 +44,7 @@ public class Field : MonoBehaviour
 
         _shuffling.InstantShuffle(_tiles);
         _animation.TileAppearance();
+        _sound.PlayTileAppearanceSound();
     }
 
     private void InitTiles(List<Tile> tiles, Vector2 minTilePosition)
@@ -54,6 +63,7 @@ public class Field : MonoBehaviour
     public IReadOnlyDictionary<Vector2Int, Tile> CorrectTilesMap => _correctTilesMap;
     public IEnumerable<Tile> Tiles => _tiles;
     public FieldAnimation Animation => _animation;
+    public FieldSound Sound => _sound;
 
     public Vector2 GetTilePosition(Vector2Int coordinates)
     {

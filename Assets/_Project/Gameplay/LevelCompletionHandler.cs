@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using UnityEngine;
 using Zenject;
 
 public class LevelCompletionHandler : IInitializable, IDisposable
@@ -44,6 +46,16 @@ public class LevelCompletionHandler : IInitializable, IDisposable
         if (_isCompleted) return;
         _isCompleted = true;
 
+        Coroutines.StartRoutine(CompleteLeverRoutine());
+    }
+
+    private IEnumerator CompleteLeverRoutine()
+    {
+        _field.Sound.PlayFieldCompleteSound();
+
+        yield return new WaitForSeconds(0.5f);
+
         _field.Animation.TileDisappearance();
+        _field.Sound.PlayTileDisappearanceSound();
     }
 }

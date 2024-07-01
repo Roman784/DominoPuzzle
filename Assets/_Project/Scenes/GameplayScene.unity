@@ -928,6 +928,7 @@ MonoBehaviour:
   _fieldConfig: {fileID: 11400000, guid: ef037f52151553a44a955ae1f5a0eb08, type: 2}
   _fieldCreationConfig: {fileID: 11400000, guid: 503af784053ecb34da549d3643030005, type: 2}
   _fieldAnimationConfig: {fileID: 11400000, guid: 8395b75072f8abe478a43d99b22c1137, type: 2}
+  _fieldSoundConfig: {fileID: 11400000, guid: 01a7bce4a84d5aa43aecce8d61e3d9c6, type: 2}
 --- !u!114 &1291408495
 MonoBehaviour:
   m_ObjectHideFlags: 0

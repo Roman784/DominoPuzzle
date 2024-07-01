@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MoveSpeed>k__BackingField: 20
   <FallSound>k__BackingField: {fileID: 8300000, guid: 6c83536ce404f2344bd241beaa0173d4, type: 3}
+  <LiftSound>k__BackingField: {fileID: 8300000, guid: 0838a2b298b70134b88a9144d1f165dd, type: 3}
