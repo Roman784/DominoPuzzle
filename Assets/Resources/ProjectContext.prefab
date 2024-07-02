@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4926812310504426685}
   - component: {fileID: 9219116634130366559}
   - component: {fileID: 8630778857891516702}
+  - component: {fileID: -5116231079491383562}
   - component: {fileID: 2720006099295687209}
   - component: {fileID: -7207017575341096006}
   - component: {fileID: 1584513950605979507}
@@ -51,6 +52,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 8630778857891516702}
+  - {fileID: -5116231079491383562}
   - {fileID: 2720006099295687209}
   - {fileID: -7207017575341096006}
   - {fileID: 1584513950605979507}
@@ -82,6 +84,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneNamesConfig: {fileID: 11400000, guid: 94fad605612162e4a97b66b6d0e0234b, type: 2}
   _soundsConfig: {fileID: 11400000, guid: be2fb31e263992b43a0f79a2524c25ba, type: 2}
+--- !u!114 &-5116231079491383562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3168218790299249999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5adb197e954324fb9686c32919ce60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultGameData: {fileID: 11400000, guid: ec71648da05295543b7133db12ab73cf, type: 2}
 --- !u!114 &2720006099295687209
 MonoBehaviour:
   m_ObjectHideFlags: 0
