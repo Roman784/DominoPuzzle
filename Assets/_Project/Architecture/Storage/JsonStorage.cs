@@ -18,16 +18,15 @@ public class JsonStorage : Storage
         if (!File.Exists(_path))
         {
             Debug.Log("Load data error: file not exist");
+
+            callback?.Invoke();
             return;
         }
 
         try
         {
-            using (var fileStream = new StreamReader(_path))
-            {
-                string json = fileStream.ReadToEnd();
-                GameData = JsonUtility.FromJson<GameData>(json);
-            }
+            string json = File.ReadAllText(_path);
+            GameData = JsonUtility.FromJson<GameData>(json);
 
             callback?.Invoke();
 
@@ -40,11 +39,8 @@ public class JsonStorage : Storage
     {
         try
         {
-            using (var fileStream = new StreamWriter(_path))
-            {
-                string json = JsonUtility.ToJson(GameData, true);
-                fileStream.Write(json);
-            }
+            string json = JsonUtility.ToJson(GameData, true);
+            File.WriteAllText(_path, json);
 
             callback?.Invoke();
 

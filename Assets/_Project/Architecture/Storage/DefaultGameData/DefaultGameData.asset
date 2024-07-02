@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DefaultGameData
   m_EditorClassIdentifier: 
   <GameData>k__BackingField:
-    <Audio>k__BackingField:
-      <Volume>k__BackingField: 1
+    Audio:
+      Volume: 1

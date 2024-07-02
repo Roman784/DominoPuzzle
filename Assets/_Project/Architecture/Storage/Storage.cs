@@ -1,10 +1,25 @@
 using System;
+using Zenject;
 
 public abstract class Storage
 {
     public abstract GameData GameData { get; protected set; }
     public abstract void Save(Action callback = null);
     public abstract void Load(Action callback = null);
+
+    private DefaultGameData _defaultData;
+
+    [Inject]
+    private void Construct(DefaultGameData defaultData)
+    {
+        _defaultData = defaultData;
+    }
+
+    public void DefaultData()
+    {
+        GameData = _defaultData.GameData;
+        Save();
+    }
 
     public void SetVolume(float volume)
     {
