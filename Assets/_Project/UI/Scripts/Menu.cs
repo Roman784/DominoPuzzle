@@ -6,29 +6,41 @@ using Zenject;
 public class Menu : MonoBehaviour
 {
     protected SceneNamesConfig SceneNames;
-    private SceneTransitionEffect _sceneTransitionEffect;
+    protected MenuSoundsConfig Sounds;
+    protected SceneTransitionEffect SceneTransitionEffect;
+    protected AudioPlayer AudioPlayer;
+
+    private Coroutine _sceneTransitionRoutine;
 
     [Inject]
-    private void Construct(SceneNamesConfig sceneNames, SceneTransitionEffect sceneTransitionEffect)
+    private void Construct(SceneNamesConfig sceneNames, MenuSoundsConfig sounds, SceneTransitionEffect sceneTransitionEffect, AudioPlayer audioPlayer)
     {
         SceneNames = sceneNames;
-        _sceneTransitionEffect = sceneTransitionEffect;
+        Sounds = sounds;
+        SceneTransitionEffect = sceneTransitionEffect;
+        AudioPlayer = audioPlayer;
     }
 
     protected void Start()
     {
-        _sceneTransitionEffect.Disappearance();
+        SceneTransitionEffect.Disappearance();
     }
 
     protected void OpenScene(string name)
     {
+        _sceneTransitionRoutine = SceneTransitionEffect.Appearance();
         StartCoroutine(OpenSceneRoutine(name));
     }
 
     private IEnumerator OpenSceneRoutine(string name)
     {
-        yield return _sceneTransitionEffect.Appearance();
+        yield return _sceneTransitionRoutine;
 
         SceneManager.LoadScene(name);
+    }
+
+    protected void PlayButtonCLickSound()
+    {
+        AudioPlayer.Play(Sounds.ButtonClickSound);
     }
 }

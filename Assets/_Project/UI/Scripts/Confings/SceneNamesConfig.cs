@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SceneNamesConfig", menuName = "Configs/Architecture/SceneNames")]
+[CreateAssetMenu(fileName = "SceneNamesConfig", menuName = "Configs/Menu/SceneNames")]
 public class SceneNamesConfig : ScriptableObject
 {
     [field: SerializeField] public string LevelList {  get; private set; }

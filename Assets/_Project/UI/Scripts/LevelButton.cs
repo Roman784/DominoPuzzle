@@ -42,6 +42,8 @@ public class LevelButton : Menu
     {
         if (_isLocked) return;
 
+        PlayButtonCLickSound();
+
         _openingLevelNumber.SetNumber(_number);
         OpenScene(_sceneNames.GameplayScene);
     }

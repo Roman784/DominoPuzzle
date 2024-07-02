@@ -32,7 +32,8 @@ public class CurrentTheme
 
     public void SetExisting(Theme theme)
     {
-        _theme?.Destroy();
+        if (_theme != theme)
+            _theme?.Destroy();
 
         GameObject.DontDestroyOnLoad(theme);
 

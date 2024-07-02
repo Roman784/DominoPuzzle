@@ -39,6 +39,7 @@ public class TileSwapBehavior : ITileBehavior
     private void Select(Tile tile)
     {
         tile.Animation.Selection();
+        tile.Sound.PlayLiftSound();
         _selectedTile = tile;
     }
 

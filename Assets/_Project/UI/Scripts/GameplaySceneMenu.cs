@@ -17,12 +17,16 @@ public class GameplaySceneMenu : PanelMenu
 
     public void ShuffleField()
     {
+        PlayButtonCLickSound();
+
         var tiles = _field.Tiles.ToList();
         _shuffling.Shuffle(tiles);
     }
 
     public void UseHint()
     {
+        PlayButtonCLickSound();
+
         _hint.Use();
     }
 }

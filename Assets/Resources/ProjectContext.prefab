@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneNamesConfig: {fileID: 11400000, guid: 94fad605612162e4a97b66b6d0e0234b, type: 2}
+  _soundsConfig: {fileID: 11400000, guid: be2fb31e263992b43a0f79a2524c25ba, type: 2}
 --- !u!114 &2720006099295687209
 MonoBehaviour:
   m_ObjectHideFlags: 0

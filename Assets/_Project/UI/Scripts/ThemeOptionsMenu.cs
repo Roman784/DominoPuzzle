@@ -27,11 +27,13 @@ public class ThemeOptionsMenu : SceneMenu
 
     public void SwitchToNext()
     {
+        PlayButtonCLickSound();
         _options.Switch(1);
     }
 
     public void SwitchToPrevious()
     {
+        PlayButtonCLickSound();
         _options.Switch(-1);
     }
 }

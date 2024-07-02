@@ -6,11 +6,13 @@ public class PanelMenu : SceneMenu
 
     public void OpenPanel()
     {
+        PlayButtonCLickSound();
         _panel.Open();
     }
 
     public void ClosePanel()
     {
+        PlayButtonCLickSound();
         _panel.Close();
     }
 }
