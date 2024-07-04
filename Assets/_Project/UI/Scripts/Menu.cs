@@ -5,6 +5,7 @@ using Zenject;
 
 public class Menu : MonoBehaviour
 {
+    protected Storage Storage;
     protected SceneNamesConfig SceneNames;
     protected MenuSoundsConfig Sounds;
     protected SceneTransitionEffect SceneTransitionEffect;
@@ -13,16 +14,14 @@ public class Menu : MonoBehaviour
     private Coroutine _sceneTransitionRoutine;
 
     [Inject]
-    private void Construct(SceneNamesConfig sceneNames, MenuSoundsConfig sounds, SceneTransitionEffect sceneTransitionEffect, AudioPlayer audioPlayer)
+    private void Construct(Storage storage, SceneNamesConfig sceneNames, MenuSoundsConfig sounds, SceneTransitionEffect sceneTransitionEffect, AudioPlayer audioPlayer)
     {
+        Storage = storage;
         SceneNames = sceneNames;
         Sounds = sounds;
         SceneTransitionEffect = sceneTransitionEffect;
         AudioPlayer = audioPlayer;
-    }
 
-    protected void Start()
-    {
         SceneTransitionEffect.Disappearance();
     }
 

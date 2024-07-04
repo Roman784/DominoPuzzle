@@ -1,4 +1,5 @@
 using System.Linq;
+using UnityEngine;
 using Zenject;
 
 public class GameplaySceneMenu : PanelMenu
@@ -13,6 +14,14 @@ public class GameplaySceneMenu : PanelMenu
         _field = field;
         _hint = hint;
         _shuffling = shuffling;
+    }
+
+    public void ChangeSoundVolume()
+    {
+        PlayButtonCLickSound();
+
+        float newVolume = AudioPlayer.ChangeVolume();
+        Storage.SetVolume(newVolume);
     }
 
     public void ShuffleField()
