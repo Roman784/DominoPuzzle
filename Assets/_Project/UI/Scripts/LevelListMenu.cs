@@ -11,19 +11,25 @@ public class LevelListMenu : MonoBehaviour
     [SerializeField] private int _lastOpenedLevelNumber; // <-
 
     private DiContainer _diContainer;
+    private FieldCreationConfig _fieldCreationConfig;
 
     [Inject]
-    private void Construct(DiContainer diContainer)
+    private void Construct(DiContainer diContainer, FieldCreationConfig fieldCreationConfig)
     {
         _diContainer = diContainer;
+        _fieldCreationConfig = fieldCreationConfig;
+
+        CreateLevelButtons();
     }
 
-    private void Start()
+    private void CreateLevelButtons()
     {
-        for (int i = 1; i <= 99; i++)
+        foreach(var fieldPrefab in _fieldCreationConfig.FieldPrefabsMap)
         {
-            bool isLocked = i > _lastOpenedLevelNumber;
-            CreateLevelButton(i, isLocked);
+            int levelNumber = fieldPrefab.Number;
+            bool isLocked = levelNumber > _lastOpenedLevelNumber;
+
+            CreateLevelButton(levelNumber, isLocked);
         }
     }
 
