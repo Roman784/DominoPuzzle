@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-public class LevelListMenu : MonoBehaviour
+public class LevelListMenu : SceneMenu
 {
     [SerializeField] private LevelButton _levelButtonPrefab;
 
@@ -22,6 +22,14 @@ public class LevelListMenu : MonoBehaviour
         CreateLevelButtons();
     }
 
+    public void OpenLevel(int number)
+    {
+        PlayButtonCLickSound();
+
+        OpeningLevel.SetNumber(number);
+        OpenGameplayScene();
+    }
+
     private void CreateLevelButtons()
     {
         foreach(var fieldPrefab in _fieldCreationConfig.FieldPrefabsMap)
@@ -39,6 +47,6 @@ public class LevelListMenu : MonoBehaviour
         button.transform.SetParent(_listContext);
         button.transform.localScale = Vector3.one;
 
-        button.Init(levelNumber, isLocked);
+        button.Init(levelNumber, isLocked, this);
     }
 }

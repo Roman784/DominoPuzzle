@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "FieldCreationConfig", menuName = "Configs/Field/Creation")]
@@ -10,6 +11,17 @@ public class FieldCreationConfig : ScriptableObject
     private void OnValidate()
     {
         ValidateFieldNumbers();
+    }
+
+    public Field GetFieldPrefab(int levelNumber)
+    {
+        foreach (var item in FieldPrefabsMap)
+        {
+            if (item.Number == levelNumber)
+                return item.Prefab;
+        }
+
+        throw new KeyNotFoundException($"The field with number {levelNumber} was not found.");
     }
 
     // Checking for matching field numbers.

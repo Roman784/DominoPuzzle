@@ -1,9 +1,8 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
-public class LevelButton : Menu
+public class LevelButton : MonoBehaviour
 {
     [SerializeField] private Button _button;
 
@@ -15,25 +14,18 @@ public class LevelButton : Menu
     private bool _isLocked;
     [SerializeField] private GameObject _lockView;
 
-    private SceneNamesConfig _sceneNames;
-    private OpeningLevelNumber _openingLevelNumber;
-
-    [Inject]
-    private void Construct(SceneNamesConfig sceneNames, OpeningLevelNumber openingLevelNumber)
-    {
-        _sceneNames = sceneNames;
-        _openingLevelNumber = openingLevelNumber;
-    }
+    private LevelListMenu _menu;
 
     private void Awake()
     {
         _button.onClick.AddListener(OpenLevel);
     }
 
-    public void Init(int number, bool isLocked)
+    public void Init(int number, bool isLocked, LevelListMenu menu)
     {
         _number = number;
         _isLocked = isLocked;
+        _menu = menu;
 
         UpdateView();
     }
@@ -42,10 +34,7 @@ public class LevelButton : Menu
     {
         if (_isLocked) return;
 
-        PlayButtonCLickSound();
-
-        _openingLevelNumber.SetNumber(_number);
-        OpenScene(_sceneNames.GameplayScene);
+        _menu.OpenLevel(_number);
     }
 
     private void UpdateView()

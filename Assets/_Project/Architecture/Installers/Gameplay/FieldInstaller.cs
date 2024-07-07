@@ -30,7 +30,9 @@ public class FieldInstaller : MonoInstaller
 
     private void BindField()
     {
-        Field prefab = _fieldCreationConfig.FieldPrefabsMap[0].Prefab;
+        int levelNumber = OpeningLevel.Number;
+        Field prefab = _fieldCreationConfig.GetFieldPrefab(levelNumber);
+
         Container.Bind<Field>().FromComponentInNewPrefab(prefab).AsSingle().NonLazy();
     }
 }
