@@ -1,4 +1,7 @@
 {
+    "Level": {
+        "LastCompletedLevelNumber": 1
+    },
     "Audio": {
         "Volume": 1.0
     }

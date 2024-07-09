@@ -8,7 +8,8 @@ public class LevelListMenu : SceneMenu
     [Space]
 
     [SerializeField] private Transform _listContext;
-    [SerializeField] private int _lastOpenedLevelNumber; // <-
+
+    private int _lastCompletedLevelNumber;
 
     private DiContainer _diContainer;
     private FieldCreationConfig _fieldCreationConfig;
@@ -18,6 +19,8 @@ public class LevelListMenu : SceneMenu
     {
         _diContainer = diContainer;
         _fieldCreationConfig = fieldCreationConfig;
+
+        _lastCompletedLevelNumber = Storage.GameData.Level.LastCompletedLevelNumber;
 
         CreateLevelButtons();
     }
@@ -35,7 +38,7 @@ public class LevelListMenu : SceneMenu
         foreach(var fieldPrefab in _fieldCreationConfig.FieldPrefabsMap)
         {
             int levelNumber = fieldPrefab.Number;
-            bool isLocked = levelNumber > _lastOpenedLevelNumber;
+            bool isLocked = levelNumber > _lastCompletedLevelNumber + 1;
 
             CreateLevelButton(levelNumber, isLocked);
         }

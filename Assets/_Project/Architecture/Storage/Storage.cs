@@ -22,6 +22,12 @@ public abstract class Storage
         Save();
     }
 
+    public void SetLastCompletedLevelNumber(int number)
+    {
+        GameData.Level.LastCompletedLevelNumber = number;
+        Save();
+    }
+
     public void SetVolume(float volume)
     {
         GameData.Audio.Volume = volume;

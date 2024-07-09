@@ -7,13 +7,15 @@ public class LevelCompletionHandler : IInitializable, IDisposable
 {
     private bool _isCompleted;
 
+    private Storage _storage;
     private Field _field;
     private ITileBehavior _tileBehavior;
     private ITileMatcher _tileMatcher;
 
     [Inject]
-    private void Construct(Field field, ITileBehavior tileBehavior, ITileMatcher tileMatcher)
+    private void Construct(Storage storage, Field field, ITileBehavior tileBehavior, ITileMatcher tileMatcher)
     {
+        _storage = storage;
         _field = field;
         _tileBehavior = tileBehavior;
         _tileMatcher = tileMatcher;
@@ -51,6 +53,9 @@ public class LevelCompletionHandler : IInitializable, IDisposable
 
     private IEnumerator CompleteLeverRoutine()
     {
+        if (OpeningLevel.Number > _storage.GameData.Level.LastCompletedLevelNumber)
+            _storage.SetLastCompletedLevelNumber(OpeningLevel.Number);
+
         _field.Sound.PlayFieldCompleteSound();
 
         yield return new WaitForSeconds(0.5f);
