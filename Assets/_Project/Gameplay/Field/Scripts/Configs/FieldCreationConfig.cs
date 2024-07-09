@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public class FieldCreationConfig : ScriptableObject
     {
         ValidateFieldNumbers();
     }
+
+    public int MaxNumber => FieldPrefabsMap.OrderByDescending(p => p.Number).First().Number;
 
     public Field GetFieldPrefab(int levelNumber)
     {

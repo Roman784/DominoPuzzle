@@ -6,4 +6,9 @@ public static class OpeningLevel
     {
         Number = number;
     }
+
+    public static void Next()
+    {
+        Number += 1;
+    }
 }

@@ -11,8 +11,6 @@ public class Menu : MonoBehaviour
     protected SceneTransitionEffect SceneTransitionEffect;
     protected AudioPlayer AudioPlayer;
 
-    private Coroutine _sceneTransitionRoutine;
-
     [Inject]
     private void Construct(Storage storage, SceneNamesConfig sceneNames, MenuSoundsConfig sounds, SceneTransitionEffect sceneTransitionEffect, AudioPlayer audioPlayer)
     {
@@ -27,13 +25,12 @@ public class Menu : MonoBehaviour
 
     protected void OpenScene(string name)
     {
-        _sceneTransitionRoutine = SceneTransitionEffect.Appearance();
         StartCoroutine(OpenSceneRoutine(name));
     }
 
     private IEnumerator OpenSceneRoutine(string name)
     {
-        yield return _sceneTransitionRoutine;
+        yield return SceneTransitionEffect.Appearance();
 
         SceneManager.LoadScene(name);
     }
