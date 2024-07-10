@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ThemeOptions
 {
@@ -7,12 +8,14 @@ public class ThemeOptions
 
     private Theme _viewedTheme => _themes[_viewedThemeIndex];
 
+    private Storage _storage;
     private CurrentTheme _currentTheme;
     private ThemeCreator _creator;
     private ThemeCreationConfig _creationConfig;
 
-    public ThemeOptions(CurrentTheme currentTheme, ThemeCreator creator, ThemeCreationConfig creationConfig)
+    public ThemeOptions(Storage storage, CurrentTheme currentTheme, ThemeCreator creator, ThemeCreationConfig creationConfig)
     {
+        _storage = storage;
         _currentTheme = currentTheme;
         _creator = creator;
         _creationConfig = creationConfig;
@@ -23,10 +26,8 @@ public class ThemeOptions
 
     public void Select()
     {
-        // id заменить на сохранение в бд.
         _currentTheme.SetExisting(_viewedTheme);
-        _currentTheme.Theme.ActivateBackground();
-        _currentTheme.Theme.DeactivateTitle();
+        _storage.SetCurrentThemeId(_viewedTheme.Id);
     }
 
     public void Switch(int step)

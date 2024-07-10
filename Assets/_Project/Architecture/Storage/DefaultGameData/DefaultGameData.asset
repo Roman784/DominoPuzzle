@@ -13,5 +13,18 @@ MonoBehaviour:
   m_Name: DefaultGameData
   m_EditorClassIdentifier: 
   <GameData>k__BackingField:
+    Level:
+      LastCompletedLevelNumber: 0
     Audio:
       Volume: 1
+    Theme:
+      CurrentThemeId: 0
+      ThemeStates:
+      - Id: 0
+        IsUnlocked: 0
+      - Id: 1
+        IsUnlocked: 0
+      - Id: 2
+        IsUnlocked: 0
+      - Id: 3
+        IsUnlocked: 0

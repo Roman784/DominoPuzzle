@@ -33,4 +33,10 @@ public abstract class Storage
         GameData.Audio.Volume = volume;
         Save();
     }
+
+    public void SetCurrentThemeId(int id)
+    {
+        GameData.Theme.CurrentThemeId = id;
+        Save();
+    }
 }

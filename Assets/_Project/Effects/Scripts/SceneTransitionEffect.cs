@@ -22,8 +22,6 @@ public class SceneTransitionEffect : MonoBehaviour
     private void Construct(CurrentTheme currentTheme)
     {
         _currentTheme = currentTheme;
-
-        SetViewColor(currentTheme.Theme);
     }
 
     private void OnEnable()

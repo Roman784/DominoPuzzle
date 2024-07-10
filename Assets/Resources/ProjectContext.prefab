@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 9219116634130366559}
   - component: {fileID: 8630778857891516702}
   - component: {fileID: -5116231079491383562}
-  - component: {fileID: 2720006099295687209}
-  - component: {fileID: -7207017575341096006}
   - component: {fileID: 1584513950605979507}
+  - component: {fileID: 2978131695122469274}
+  - component: {fileID: -1459913291749212397}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -53,9 +53,9 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 8630778857891516702}
   - {fileID: -5116231079491383562}
-  - {fileID: 2720006099295687209}
-  - {fileID: -7207017575341096006}
   - {fileID: 1584513950605979507}
+  - {fileID: 2978131695122469274}
+  - {fileID: -1459913291749212397}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -98,32 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultGameData: {fileID: 11400000, guid: ec71648da05295543b7133db12ab73cf, type: 2}
---- !u!114 &2720006099295687209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3168218790299249999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c8bd8b1a097c7408acda240a3e157c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _themeCreationConfig: {fileID: 11400000, guid: 154bc487b5ed59c41ac67b43612987e3, type: 2}
---- !u!114 &-7207017575341096006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3168218790299249999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab4599a9563953f48a4792bb185382b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sceneTransitionPrefab: {fileID: 4081954966529181727, guid: 549b2e6d21d9b9f468df7a95b9f12400, type: 3}
 --- !u!114 &1584513950605979507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,3 +111,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sourcerPrefab: {fileID: 5577458074005995113, guid: 1e81624bcc03539449bff996fe73a165, type: 3}
+--- !u!114 &2978131695122469274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3168218790299249999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c8bd8b1a097c7408acda240a3e157c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _themeCreationConfig: {fileID: 11400000, guid: 154bc487b5ed59c41ac67b43612987e3, type: 2}
+--- !u!114 &-1459913291749212397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3168218790299249999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4599a9563953f48a4792bb185382b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneTransitionPrefab: {fileID: 4081954966529181727, guid: 549b2e6d21d9b9f468df7a95b9f12400, type: 3}

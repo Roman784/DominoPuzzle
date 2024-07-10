@@ -13,12 +13,6 @@ public class CurrentTheme
     private void Construct(ThemeCreator themeCreator)
     {
         _themeCreator = themeCreator;
-
-        Set(0); // <- id θη αδ
-
-        _theme.ActivateBackground();
-        _theme.DeactivateTitle();
-        _theme.Sound.PlaySoundtrack();
     }
 
     public Theme Theme => _theme;
@@ -27,6 +21,7 @@ public class CurrentTheme
     public void Set(int id)
     {
         Theme theme = _themeCreator.Create(id);
+        theme.Init(id);
         SetExisting(theme);
     }
 
@@ -36,6 +31,10 @@ public class CurrentTheme
             _theme?.Destroy();
 
         GameObject.DontDestroyOnLoad(theme);
+
+        theme.ActivateBackground();
+        theme.DeactivateTitle();
+        theme.Sound.PlaySoundtrack();
 
         _theme = theme;
         OnThemeChanged?.Invoke(theme);

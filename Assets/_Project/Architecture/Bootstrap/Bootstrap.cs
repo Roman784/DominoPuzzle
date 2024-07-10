@@ -6,12 +6,14 @@ public class Bootstrap : MonoBehaviour
 {
     private Storage _storage;
     private SceneNamesConfig _sceneNames;
+    private CurrentTheme _currentTheme;
 
     [Inject]
-    private void Construct(Storage storage, SceneNamesConfig sceneNames)
+    private void Construct(Storage storage, SceneNamesConfig sceneNames, CurrentTheme currentTheme)
     {
         _storage = storage;
         _sceneNames = sceneNames;
+        _currentTheme = currentTheme;
 
         LoadData();
     }
@@ -23,6 +25,7 @@ public class Bootstrap : MonoBehaviour
             if (_storage.GameData == null)
                 _storage.DefaultData();
 
+            _currentTheme.Set(_storage.GameData.Theme.CurrentThemeId);
             // OpeningLevel.SetNumber();
             OpenGameplayScene();
         });

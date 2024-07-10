@@ -580,7 +580,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelButtonPrefab: {fileID: 6290054133605795700, guid: eee08bceacc445e41be12101a038fdcd, type: 3}
   _listContext: {fileID: 399934365}
-  _lastOpenedLevelNumber: 86
 --- !u!1 &1707453374
 GameObject:
   m_ObjectHideFlags: 0

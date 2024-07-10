@@ -28,7 +28,8 @@ public class ThemeSound
     public void StopSoundtrack()
     {
         StopCurrentRoutine();
-        _currentRoutine = Coroutines.StartRoutine(ChangeSoundtrackVolume(1f, 0f, 2f, () => _soundtrackPlayer.Stop()));
+        _currentRoutine = Coroutines.StartRoutine(ChangeSoundtrackVolume(1f, 0f, 2f, 
+            () => _soundtrackPlayer.Stop()));
     }
 
     private IEnumerator ChangeSoundtrackVolume(float from, float to, float duration, Action callback)

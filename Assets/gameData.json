@@ -1,8 +1,29 @@
 {
     "Level": {
-        "LastCompletedLevelNumber": 3
+        "LastCompletedLevelNumber": 0
     },
     "Audio": {
         "Volume": 1.0
+    },
+    "Theme": {
+        "CurrentThemeId": 3,
+        "ThemeStates": [
+            {
+                "Id": 0,
+                "IsUnlocked": false
+            },
+            {
+                "Id": 1,
+                "IsUnlocked": false
+            },
+            {
+                "Id": 2,
+                "IsUnlocked": false
+            },
+            {
+                "Id": 3,
+                "IsUnlocked": false
+            }
+        ]
     }
 }

@@ -6,9 +6,9 @@ public class ThemeOptionsMenu : SceneMenu
     private ThemeOptions _options;
 
     [Inject]
-    private void Construct (CurrentTheme currentTheme, ThemeCreator creator, ThemeCreationConfig creationConfig)
+    private void Construct (Storage storage, CurrentTheme currentTheme, ThemeCreator creator, ThemeCreationConfig creationConfig)
     {
-        _options = new ThemeOptions(currentTheme, creator, creationConfig);
+        _options = new ThemeOptions(storage, currentTheme, creator, creationConfig);
     }
 
     private void Update()
