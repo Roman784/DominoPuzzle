@@ -11,6 +11,7 @@ public class MenuInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindConfigs();
+        BindSceneTransition();
     }
 
     private void BindConfigs()
@@ -19,5 +20,10 @@ public class MenuInstaller : MonoInstaller
         Container.Bind<MenuSoundsConfig>().FromInstance(_soundsConfig).AsSingle();
 
         Container.Bind<FieldCreationConfig>().FromInstance(_fieldCreationConfig).AsSingle();
+    }
+
+    private void BindSceneTransition()
+    {
+        Container.BindInterfacesAndSelfTo<SceneTransition>().AsSingle();
     }
 }

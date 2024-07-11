@@ -3,21 +3,18 @@ public class SceneMenu : Menu
     public void OpenThemeOptionsScene()
     {
         PlayButtonCLickSound();
-
-        OpenScene(SceneNames.ThemeOptions);
+        SceneTransition.OpenThemeOptionsScenen();
     }
 
     public void OpenLevelListScene()
     {
         PlayButtonCLickSound();
-
-        OpenScene(SceneNames.LevelList);
+        SceneTransition.OpenLevelListScenen();
     }
 
     public void OpenGameplayScene()
     {
         PlayButtonCLickSound();
-
-        OpenScene(SceneNames.GameplayScene);
+        SceneTransition.OpenGameplayScene();
     }
 }

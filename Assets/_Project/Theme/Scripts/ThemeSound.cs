@@ -49,7 +49,7 @@ public class ThemeSound
         callback?.Invoke();
     }
 
-    private void StopCurrentRoutine()
+    public void StopCurrentRoutine()
     {
         if (_currentRoutine != null)
             Coroutines.StopRoutine(_currentRoutine);

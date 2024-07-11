@@ -1,38 +1,20 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 public class Menu : MonoBehaviour
 {
     protected Storage Storage;
-    protected SceneNamesConfig SceneNames;
+    protected SceneTransition SceneTransition;
     protected MenuSoundsConfig Sounds;
-    protected SceneTransitionEffect SceneTransitionEffect;
     protected AudioPlayer AudioPlayer;
 
     [Inject]
-    private void Construct(Storage storage, SceneNamesConfig sceneNames, MenuSoundsConfig sounds, SceneTransitionEffect sceneTransitionEffect, AudioPlayer audioPlayer)
+    private void Construct(Storage storage, SceneTransition sceneTransition, MenuSoundsConfig sounds, AudioPlayer audioPlayer)
     {
         Storage = storage;
-        SceneNames = sceneNames;
+        SceneTransition = sceneTransition;
         Sounds = sounds;
-        SceneTransitionEffect = sceneTransitionEffect;
         AudioPlayer = audioPlayer;
-
-        SceneTransitionEffect.Disappearance();
-    }
-
-    protected void OpenScene(string name)
-    {
-        StartCoroutine(OpenSceneRoutine(name));
-    }
-
-    private IEnumerator OpenSceneRoutine(string name)
-    {
-        yield return SceneTransitionEffect.Appearance();
-
-        SceneManager.LoadScene(name);
     }
 
     protected void PlayButtonCLickSound()

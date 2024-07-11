@@ -63,4 +63,10 @@ public class Theme : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    private void OnDestroy()
+    {
+        // When switching scenes, if the current theme is not selected, the sound player is destroyed, but the routine still works.
+        _sound.StopCurrentRoutine();
+    }
 }

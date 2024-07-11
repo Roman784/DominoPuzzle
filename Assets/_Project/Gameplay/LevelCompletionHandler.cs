@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 public class LevelCompletionHandler : IInitializable, IDisposable
@@ -9,23 +8,24 @@ public class LevelCompletionHandler : IInitializable, IDisposable
     private bool _isCompleted;
 
     private Storage _storage;
+    private SceneTransition _sceneTransition;
     private Field _field;
     private FieldCreationConfig _fieldCreationConfig;
     private ITileBehavior _tileBehavior;
     private ITileMatcher _tileMatcher;
-    SceneNamesConfig _sceneNames;
-    SceneTransitionEffect _sceneTransitionEffect;
 
     [Inject]
-    private void Construct(Storage storage, Field field, FieldCreationConfig fieldCreationConfig, ITileBehavior tileBehavior, ITileMatcher tileMatcher, SceneNamesConfig sceneNames, SceneTransitionEffect sceneTransitionEffect)
+    private void Construct(Storage storage, SceneTransition sceneTransition, 
+                           Field field, FieldCreationConfig fieldCreationConfig, 
+                           ITileBehavior tileBehavior, ITileMatcher tileMatcher)
     {
         _storage = storage;
+        _sceneTransition = sceneTransition;
+
         _field = field;
         _fieldCreationConfig = fieldCreationConfig;
         _tileBehavior = tileBehavior;
         _tileMatcher = tileMatcher;
-        _sceneNames = sceneNames;
-        _sceneTransitionEffect = sceneTransitionEffect;
     }
 
     public void Initialize()
@@ -72,13 +72,10 @@ public class LevelCompletionHandler : IInitializable, IDisposable
 
         yield return new WaitForSeconds(1.5f);
 
-        yield return _sceneTransitionEffect.Appearance();
-
         OpeningLevel.Next();
-
-        if (OpeningLevel.Number >= _fieldCreationConfig.MaxNumber)
-            SceneManager.LoadScene(_sceneNames.LevelList);
+        if (OpeningLevel.Number > _fieldCreationConfig.MaxNumber)
+            _sceneTransition.OpenLevelListScenen();
         else
-            SceneManager.LoadScene(_sceneNames.GameplayScene);
+            _sceneTransition.OpenGameplayScene();
     }
 }

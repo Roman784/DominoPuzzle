@@ -5,14 +5,14 @@ using Zenject;
 public class Bootstrap : MonoBehaviour
 {
     private Storage _storage;
-    private SceneNamesConfig _sceneNames;
+    private SceneTransition _sceneTransition;
     private CurrentTheme _currentTheme;
 
     [Inject]
-    private void Construct(Storage storage, SceneNamesConfig sceneNames, CurrentTheme currentTheme)
+    private void Construct(Storage storage, SceneTransition sceneTransition, CurrentTheme currentTheme)
     {
         _storage = storage;
-        _sceneNames = sceneNames;
+        _sceneTransition = sceneTransition;
         _currentTheme = currentTheme;
 
         LoadData();
@@ -27,12 +27,7 @@ public class Bootstrap : MonoBehaviour
 
             _currentTheme.Set(_storage.GameData.Theme.CurrentThemeId);
             // OpeningLevel.SetNumber();
-            OpenGameplayScene();
+            _sceneTransition.OpenGameplayScene();
         });
-    }
-
-    private void OpenGameplayScene()
-    {
-        SceneManager.LoadScene(_sceneNames.GameplayScene);
     }
 }
