@@ -28,6 +28,8 @@ public class ThemeOptions
     {
         _currentTheme.SetExisting(_viewedTheme);
         _storage.SetCurrentThemeId(_viewedTheme.Id);
+
+        DestroyUnviewedThemes();
     }
 
     public void Switch(int step)
@@ -65,6 +67,15 @@ public class ThemeOptions
             _themes.Add(theme);
 
             i++;
+        }
+    }
+
+    private void DestroyUnviewedThemes()
+    {
+        foreach (Theme theme in _themes)
+        {
+            if (theme != _viewedTheme)
+                theme.Destroy();
         }
     }
 

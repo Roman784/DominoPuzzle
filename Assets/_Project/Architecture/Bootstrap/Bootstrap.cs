@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 public class Bootstrap : MonoBehaviour
@@ -7,13 +6,15 @@ public class Bootstrap : MonoBehaviour
     private Storage _storage;
     private SceneTransition _sceneTransition;
     private CurrentTheme _currentTheme;
+    private FieldCreationConfig _fieldCreationConfig;
 
     [Inject]
-    private void Construct(Storage storage, SceneTransition sceneTransition, CurrentTheme currentTheme)
+    private void Construct(Storage storage, SceneTransition sceneTransition, CurrentTheme currentTheme, FieldCreationConfig fieldCreationConfig)
     {
         _storage = storage;
         _sceneTransition = sceneTransition;
         _currentTheme = currentTheme;
+        _fieldCreationConfig = fieldCreationConfig;
 
         LoadData();
     }
@@ -26,8 +27,12 @@ public class Bootstrap : MonoBehaviour
                 _storage.DefaultData();
 
             _currentTheme.Set(_storage.GameData.Theme.CurrentThemeId);
-            // OpeningLevel.SetNumber();
-            _sceneTransition.OpenGameplayScene();
+
+            OpeningLevel.SetNumber(_storage.GameData.Level.LastCompletedLevelNumber + 1);
+            if (OpeningLevel.Number > _fieldCreationConfig.MaxNumber)
+                _sceneTransition.OpenLevelListScenen();
+            else
+                _sceneTransition.OpenGameplayScene();
         });
     }
 }
