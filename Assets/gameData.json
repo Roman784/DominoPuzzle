@@ -3,10 +3,10 @@
         "LastCompletedLevelNumber": 30
     },
     "Audio": {
-        "Volume": 1.0
+        "Volume": 0.0
     },
     "Theme": {
-        "CurrentThemeId": 2,
+        "CurrentThemeId": 1,
         "ThemeStates": [
             {
                 "Id": 0,
