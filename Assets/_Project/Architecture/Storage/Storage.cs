@@ -39,4 +39,10 @@ public abstract class Storage
         GameData.Theme.CurrentThemeId = id;
         Save();
     }
+
+    public void SetHintCount(int count)
+    {
+        GameData.HintCount = count;
+        Save();
+    }
 }

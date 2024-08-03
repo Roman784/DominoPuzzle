@@ -28,3 +28,4 @@ MonoBehaviour:
         IsUnlocked: 0
       - Id: 3
         IsUnlocked: 0
+    HintCount: 3
