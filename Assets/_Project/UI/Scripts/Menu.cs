@@ -3,14 +3,14 @@ using Zenject;
 
 public class Menu : MonoBehaviour
 {
-    protected ISDK SDK;
+    protected SDK SDK;
     protected Storage Storage;
     protected SceneTransition SceneTransition;
     protected MenuSoundsConfig Sounds;
     protected AudioPlayer AudioPlayer;
 
     [Inject]
-    private void Construct(ISDK Sdk, Storage storage, SceneTransition sceneTransition, MenuSoundsConfig sounds, AudioPlayer audioPlayer)
+    private void Construct(SDK Sdk, Storage storage, SceneTransition sceneTransition, MenuSoundsConfig sounds, AudioPlayer audioPlayer)
     {
         SDK = Sdk;
         Storage = storage;

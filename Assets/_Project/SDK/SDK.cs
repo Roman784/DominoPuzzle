@@ -1,14 +1,24 @@
+using System;
 using UnityEngine;
 using Zenject;
 
-public class YandexSDKReceiver : MonoBehaviour
+public abstract class SDK : MonoBehaviour
 {
+    [SerializeField] private string _tokenName;
+
     private AudioPlayer _audioPlayer;
 
-    public void Init(AudioPlayer audioPlayer)
+    [Inject]
+    private void Construct(AudioPlayer audioPlayer)
     {
         _audioPlayer = audioPlayer;
+
+        transform.SetParent(null);
+        gameObject.name = _tokenName;
     }
+
+    public abstract void Init();
+    public abstract void ShowRewardedVideo(Action<bool> callback = null);
 
     public void StopGame()
     {

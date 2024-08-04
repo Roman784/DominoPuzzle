@@ -3,7 +3,7 @@ using Zenject;
 
 public class Bootstrap : MonoBehaviour
 {
-    private ISDK _SDK;
+    private SDK _SDK;
     private Storage _storage;
     private SceneTransition _sceneTransition;
     private CurrentTheme _currentTheme;
@@ -11,7 +11,7 @@ public class Bootstrap : MonoBehaviour
     private AudioPlayer _audioPlayer;
 
     [Inject]
-    private void Construct(ISDK SDK, Storage storage, SceneTransition sceneTransition, CurrentTheme currentTheme, FieldCreationConfig fieldCreationConfig, AudioPlayer audioPlayer)
+    private void Construct(SDK SDK, Storage storage, SceneTransition sceneTransition, CurrentTheme currentTheme, FieldCreationConfig fieldCreationConfig, AudioPlayer audioPlayer)
     {
         _SDK = SDK;
         _storage = storage;
