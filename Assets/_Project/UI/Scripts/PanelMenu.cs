@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PanelMenu : SceneMenu
 {
@@ -14,5 +15,15 @@ public class PanelMenu : SceneMenu
     {
         PlayButtonCLickSound();
         _panel.Close();
+    }
+
+    public bool TrySetColor(Color color)
+    {
+        if (_panel.TryGetComponent<Image>(out Image image))
+        {
+            image.color = color;
+            return true;
+        }
+        return false;
     }
 }

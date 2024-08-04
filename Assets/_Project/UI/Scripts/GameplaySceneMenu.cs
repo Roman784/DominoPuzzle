@@ -9,6 +9,8 @@ public class GameplaySceneMenu : PanelMenu
     private IHint _hint;
     private IFieldShuffling _shuffling;
 
+    [SerializeField] private HintRecoveryMenu _hintRecoveryMenu;
+
     private int _hintCount;
     [SerializeField] private TMP_Text _hintCountView;
 
@@ -21,6 +23,8 @@ public class GameplaySceneMenu : PanelMenu
 
         _hintCount = Storage.GameData.HintCount;
         UpdateView();
+
+        _hintRecoveryMenu.OnRecovered.AddListener(RecoverHints);
     }
 
     public void ChangeSoundVolume()
@@ -39,28 +43,28 @@ public class GameplaySceneMenu : PanelMenu
         _shuffling.Shuffle(tiles);
     }
 
-    public void UseHint() // <-
+    public void UseHint()
     {
         if (_hintCount <= 0)
         {
-            SDK.ShowRewardedVideo((bool res) => 
-            {
-                if (res)
-                {
-                    _hintCount = 3;
-                    Storage.SetHintCount(_hintCount);
-                    UpdateView();
-                }
-            });
-
+            _hintRecoveryMenu.OpenPanel();
             return;
         }
 
         PlayButtonCLickSound();
 
         _hint.Use();
+        SetHintCount(_hintCount - 1);
+    }
 
-        _hintCount -= 1;
+    private void RecoverHints()
+    {
+        SetHintCount(3);
+    }
+
+    private void SetHintCount(int count)
+    {
+        _hintCount = count;
         Storage.SetHintCount(_hintCount);
         UpdateView();
     }
