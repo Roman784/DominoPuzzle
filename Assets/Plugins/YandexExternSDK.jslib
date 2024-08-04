@@ -2,8 +2,9 @@ mergeInto(LibraryManager.library, {
 
     ShowRewardedVideoExtern : function () 
     {
-        console.log("aboba");
-        myGameInstance.SendMessage('YandexSDKReceiver', 'StopGame');
+        gameInstance.SendMessage('YandexSDKReceiver', 'StopGame');
+        gameInstance.SendMessage('YandexSDKReceiver', 'ContinueGame');
+
         // ysdk.adv.showRewardedVideo({
         //     callbacks: {
         //         onOpen: () => {

@@ -10,17 +10,23 @@ public class AudioPlayer
     private float _volume;
 
     [Inject]
-    private void Construct(AudioSourcer sourcerPrefab, Storage storage)
+    private void Construct(AudioSourcer sourcerPrefab)
     {
         _sourcerPrefab = sourcerPrefab;
-        _volume = storage.GameData.Audio.Volume;
+    }
 
+    public void Init(float volume)
+    {
+        _volume = volume;
         UpdateAudioListener(_volume);
 
         OnVolumeChanged.AddListener(UpdateAudioListener);
     }
 
     public float Volume => _volume;
+
+    public void StopPlayer() => AudioListener.volume = 0f;
+    public void ResumePlayer() => AudioListener.volume = Volume;
 
     public void Play(AudioClip clip)
     {

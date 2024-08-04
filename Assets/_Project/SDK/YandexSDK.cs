@@ -1,15 +1,24 @@
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using Zenject;
 
 public class YandexSDK : ISDK
 {
     [DllImport("__Internal")] private static extern void ShowRewardedVideoExtern();
 
-    private YandexSDK()
+    [Inject]
+    private void Construct(AudioPlayer audioPlayer)
     {
-        GameObject receiver = new GameObject("YandexSDKReceiver", typeof(YandexSDKReceiver));
-        GameObject.DontDestroyOnLoad(receiver);
+        YandexSDKReceiver receiver = new GameObject("YandexSDKReceiver").AddComponent<YandexSDKReceiver>();
+        GameObject.DontDestroyOnLoad(receiver.gameObject);
+
+        receiver.Init(audioPlayer);
+    }
+
+    public void Init()
+    {
+        Debug.Log("SDK init");
     }
 
     public void ShowRewardedVideo(Action<bool> callback = null)
