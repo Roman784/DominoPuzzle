@@ -39,9 +39,22 @@ public class GameplaySceneMenu : PanelMenu
         _shuffling.Shuffle(tiles);
     }
 
-    public void UseHint()
+    public void UseHint() // <-
     {
-        if (_hintCount <= 0) return;
+        if (_hintCount <= 0)
+        {
+            SDK.ShowRewardedVideo((bool res) => 
+            {
+                if (res)
+                {
+                    _hintCount = 3;
+                    Storage.SetHintCount(_hintCount);
+                    UpdateView();
+                }
+            });
+
+            return;
+        }
 
         PlayButtonCLickSound();
 
