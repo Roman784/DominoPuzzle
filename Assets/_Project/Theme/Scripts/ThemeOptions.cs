@@ -4,9 +4,7 @@ using UnityEngine;
 public class ThemeOptions
 {
     private List<Theme> _themes = new List<Theme>();
-    private int _viewedThemeIndex;
-
-    private Theme _viewedTheme => _themes[_viewedThemeIndex];
+    private int ViewedThemeIndex;
 
     private Storage _storage;
     private CurrentTheme _currentTheme;
@@ -24,25 +22,33 @@ public class ThemeOptions
         CreateOptions();
     }
 
+    public Theme ViewedTheme => _themes[ViewedThemeIndex];
+
     public void Select()
     {
-        _currentTheme.SetExisting(_viewedTheme);
-        _storage.SetCurrentThemeId(_viewedTheme.Id);
+        _currentTheme.SetExisting(ViewedTheme);
+        _storage.SetCurrentThemeId(ViewedTheme.Id);
 
         DestroyUnviewedThemes();
     }
 
     public void Switch(int step)
     {
-        _viewedTheme.Animation.Disappearance();
-        _viewedTheme.Sound.StopSoundtrack();
+        ViewedTheme.Animation.Disappearance();
+        ViewedTheme.Sound.StopSoundtrack();
 
-        _viewedThemeIndex += step;
+        ViewedThemeIndex += step;
         ClampViewedThemeIndex();
 
-        _viewedTheme.Activate();
-        _viewedTheme.Animation.Appearance();
-        _viewedTheme.Sound.PlaySoundtrack();
+        ViewedTheme.Activate();
+        ViewedTheme.Animation.Appearance();
+        ViewedTheme.Sound.PlaySoundtrack();
+    }
+
+    public void UnlockViewedTheme()
+    {
+        ViewedTheme.Unlock();
+        _storage.UnlockTheme(ViewedTheme.Id);
     }
 
     private void CreateOptions()
@@ -51,17 +57,18 @@ public class ThemeOptions
         foreach (var item in _creationConfig.ThemePrefabsMap)
         {
             int id = item.Id;
+            bool isUnlocked = _storage.GameData.Theme.ThemeState(id).IsUnlocked;
 
             if (id == _currentTheme.Theme.Id)
             {
                 _themes.Add(_currentTheme.Theme);
-                _viewedThemeIndex = i;
+                ViewedThemeIndex = i;
                 continue;
             }
 
             Theme theme = _creator.Create(id);
 
-            theme.Init(id);
+            theme.Init(id, isUnlocked);
             theme.Deactivate();
 
             _themes.Add(theme);
@@ -74,14 +81,14 @@ public class ThemeOptions
     {
         foreach (Theme theme in _themes)
         {
-            if (theme != _viewedTheme)
+            if (theme != ViewedTheme)
                 theme.Destroy();
         }
     }
 
     private void ClampViewedThemeIndex()
     {
-        if (_viewedThemeIndex >= _themes.Count) _viewedThemeIndex = 0;
-        if (_viewedThemeIndex < 0) _viewedThemeIndex = _themes.Count - 1;
+        if (ViewedThemeIndex >= _themes.Count) ViewedThemeIndex = 0;
+        if (ViewedThemeIndex < 0) ViewedThemeIndex = _themes.Count - 1;
     }
 }

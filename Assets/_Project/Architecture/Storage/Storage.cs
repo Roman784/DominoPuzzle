@@ -40,6 +40,12 @@ public abstract class Storage
         Save();
     }
 
+    public void UnlockTheme(int id)
+    {
+        GameData.Theme.ThemeState(id).IsUnlocked = true;
+        Save();
+    }
+
     public void SetHintCount(int count)
     {
         GameData.HintCount = count;

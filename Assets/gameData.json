@@ -6,11 +6,11 @@
         "Volume": 1.0
     },
     "Theme": {
-        "CurrentThemeId": 3,
+        "CurrentThemeId": 2,
         "ThemeStates": [
             {
                 "Id": 0,
-                "IsUnlocked": false
+                "IsUnlocked": true
             },
             {
                 "Id": 1,
@@ -18,7 +18,7 @@
             },
             {
                 "Id": 2,
-                "IsUnlocked": false
+                "IsUnlocked": true
             },
             {
                 "Id": 3,

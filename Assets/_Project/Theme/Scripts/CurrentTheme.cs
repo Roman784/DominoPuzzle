@@ -21,7 +21,7 @@ public class CurrentTheme
     public void Set(int id)
     {
         Theme theme = _themeCreator.Create(id);
-        theme.Init(id);
+        theme.Init(id, true);
         SetExisting(theme);
     }
 

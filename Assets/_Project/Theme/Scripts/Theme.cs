@@ -4,6 +4,7 @@ using UnityEngine;
 public class Theme : MonoBehaviour
 {
     private int _id;
+    private bool _isUnlocked;
 
     [SerializeField] private ThemeConfig _config;
 
@@ -27,12 +28,16 @@ public class Theme : MonoBehaviour
         _sound = new ThemeSound(_soundtrackPlayer, _config);
     }
 
-    public void Init(int id)
+    public void Init(int id, bool isUnlocked)
     {
         _id = id;
+        _isUnlocked = isUnlocked;
     }
 
+    public void Unlock() => _isUnlocked = true;
+
     public int Id => _id;
+    public bool IsUnlocked => _isUnlocked;
     public ThemeConfig Config => _config;
     public ThemeAnimation Animation => _animation;
     public ThemeSound Sound => _sound;
