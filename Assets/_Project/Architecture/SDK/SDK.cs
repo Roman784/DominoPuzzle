@@ -17,7 +17,7 @@ public abstract class SDK : MonoBehaviour
         gameObject.name = _tokenName;
     }
 
-    public abstract void Init();
+    public abstract void Init(Action<bool> callback = null);
     public abstract void ShowRewardedVideo(Action<bool> callback = null);
     public abstract Language GetLanguage();
 

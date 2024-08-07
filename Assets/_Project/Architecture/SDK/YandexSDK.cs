@@ -2,19 +2,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class YandexSDK : SDK
 {
+    [DllImport("__Internal")] private static extern void InitYSDKExtern(int callbackId);
     [DllImport("__Internal")] private static extern void ShowRewardedVideoExtern(int id);
     [DllImport("__Internal")] private static extern string GetLanguageExtern();
 
     private Dictionary<int, Action<bool>> _callbacksMap = new Dictionary<int, Action<bool>>();
 
-    public override void Init()
+    public override void Init(Action<bool> callback = null)
     {
-        Debug.Log("SDK init");
+        try 
+        {
+            int callbackId = RegisterCallback(callback);
+            InitYSDKExtern(callbackId); 
+        }
+        catch 
+        { 
+            Debug.Log("Init SDK extern error");
+            callback?.Invoke(false);
+        }
     }
 
     public override void ShowRewardedVideo(Action<bool> callback = null)
@@ -31,14 +40,6 @@ public class YandexSDK : SDK
             callback?.Invoke(false);
             ContinueGame();
         }
-    }
-
-    public void OnRewarded(int id)
-    {
-        _callbacksMap[id]?.Invoke(true);
-        _callbacksMap.Remove(id);
-
-        ContinueGame();
     }
 
     public override Language GetLanguage()
@@ -58,6 +59,14 @@ public class YandexSDK : SDK
             Debug.Log("aaaaaaaaaaaaaaaaa");
             return Language.En; 
         }
+    }
+
+    public void InvokeCallback(int id)
+    {
+        _callbacksMap[id]?.Invoke(true);
+        _callbacksMap.Remove(id);
+
+        ContinueGame();
     }
 
     private int RegisterCallback(Action<bool> callback)

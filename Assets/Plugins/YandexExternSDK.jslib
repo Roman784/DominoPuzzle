@@ -1,8 +1,13 @@
 mergeInto(LibraryManager.library, {
 
+    InitYSDKExtern: function(id)
+    {
+        initSDK(id);
+    },
+
     ShowRewardedVideoExtern : function(id) 
     {
-        gameInstance.SendMessage('YandexSDK', 'OnRewarded', id);
+        gameInstance.SendMessage('YandexSDK', 'InvokeCallback', id);
 
         // ysdk.adv.showRewardedVideo({
         //     callbacks: {

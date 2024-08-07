@@ -27,12 +27,16 @@ public class Bootstrap : MonoBehaviour
 
     private void Init()
     {
-        _SDK.Init();
-        _localization.Init();
-
-        _storage.Load(() =>
+        _SDK.Init((bool res) => 
         {
-            OnDataLoaded();
+            if (res)
+            {
+                _localization.Init();
+                _storage.Load(() =>
+                {
+                    OnDataLoaded();
+                });
+            }
         });
     }
 
