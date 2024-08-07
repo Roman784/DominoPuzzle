@@ -29,6 +29,26 @@ mergeInto(LibraryManager.library, {
         })
     },
 
+    ShowFullscreenAdvExtern : function () 
+    {
+        ysdk.adv.showFullscreenAdv({
+            callbacks: {
+                onClose: function(wasShown) {
+                    gameInstance.SendMessage('YandexSDK', 'ContinueGame');
+                    console.log ("adv close");
+                },
+                onOpen: function(open) {
+                    gameInstance.SendMessage('YandexSDK', 'StopGame');
+                    console.log ("adv open");
+                },
+                onError: function(error) {
+                    gameInstance.SendMessage('YandexSDK', 'ContinueGame');
+                    console.log ("adv error");
+                }
+            }
+        })
+    },
+
     GetLanguageExtern: function () 
     {
         var lang = ysdk.environment.i18n.lang;

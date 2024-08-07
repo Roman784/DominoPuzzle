@@ -8,6 +8,7 @@ public class YandexSDK : SDK
 {
     [DllImport("__Internal")] private static extern void InitYSDKExtern(int callbackId);
     [DllImport("__Internal")] private static extern void ShowRewardedVideoExtern(int id);
+    [DllImport("__Internal")] private static extern void ShowFullscreenAdvExtern();
     [DllImport("__Internal")] private static extern string GetLanguageExtern();
 
     private Dictionary<int, Action<bool>> _callbacksMap = new Dictionary<int, Action<bool>>();
@@ -30,6 +31,12 @@ public class YandexSDK : SDK
             ShowRewardedVideoExtern(id);
         }
         catch { callback?.Invoke(false); }
+    }
+
+    public override void ShowFullscreenAdv()
+    {
+        try { ShowFullscreenAdvExtern(); }
+        catch { Debug.Log("Full screen adv error"); }
     }
 
     public override Language GetLanguage()
