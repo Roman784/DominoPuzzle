@@ -19,27 +19,17 @@ public class YandexSDK : SDK
             int callbackId = RegisterCallback(callback);
             InitYSDKExtern(callbackId); 
         }
-        catch 
-        { 
-            Debug.Log("Init SDK extern error");
-            callback?.Invoke(false);
-        }
+        catch  { callback?.Invoke(false); }
     }
 
     public override void ShowRewardedVideo(Action<bool> callback = null)
     {
-        StopGame();
-
         try
         {
             int id = RegisterCallback(callback);
             ShowRewardedVideoExtern(id);
         }
-        catch
-        {
-            callback?.Invoke(false);
-            ContinueGame();
-        }
+        catch { callback?.Invoke(false); }
     }
 
     public override Language GetLanguage()
@@ -65,8 +55,6 @@ public class YandexSDK : SDK
     {
         _callbacksMap[id]?.Invoke(true);
         _callbacksMap.Remove(id);
-
-        ContinueGame();
     }
 
     private int RegisterCallback(Action<bool> callback)
