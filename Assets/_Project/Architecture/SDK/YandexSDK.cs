@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class YandexSDK : SDK
 {
     [DllImport("__Internal")] private static extern void ShowRewardedVideoExtern(int id);
+    [DllImport("__Internal")] private static extern string GetLanguageExtern();
 
     private Dictionary<int, Action<bool>> _callbacksMap = new Dictionary<int, Action<bool>>();
 
@@ -37,6 +39,25 @@ public class YandexSDK : SDK
         _callbacksMap.Remove(id);
 
         ContinueGame();
+    }
+
+    public override Language GetLanguage()
+    {
+        try
+        {
+            string res = GetLanguageExtern();
+            Debug.Log(res);
+
+            if (res == "ru")
+                return Language.Ru;
+            else
+                return Language.En;
+        }
+        catch 
+        {
+            Debug.Log("aaaaaaaaaaaaaaaaa");
+            return Language.En; 
+        }
     }
 
     private int RegisterCallback(Action<bool> callback)

@@ -19,6 +19,7 @@ public abstract class SDK : MonoBehaviour
 
     public abstract void Init();
     public abstract void ShowRewardedVideo(Action<bool> callback = null);
+    public abstract Language GetLanguage();
 
     public void StopGame()
     {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2265645357279572319}
   - component: {fileID: 7058286259053194021}
   - component: {fileID: 6883365877563851245}
+  - component: {fileID: 1131144375990471573}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -59,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -134,6 +135,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1131144375990471573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055274528904016039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7cba9b98c900a04db11fd096e805694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _en: Spruce forest
+  _ru: "\u0415\u043B\u043E\u0432\u044B\u0439 \u043B\u0435\u0441"
 --- !u!1 &3220722682976956031
 GameObject:
   m_ObjectHideFlags: 0
