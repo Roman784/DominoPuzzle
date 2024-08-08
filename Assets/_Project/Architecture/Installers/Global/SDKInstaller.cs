@@ -7,6 +7,10 @@ public class SDKInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.Bind<SDK>().FromComponentInNewPrefab(_yandexSDK).AsSingle();
+        YandexSDK SDK = Instantiate(_yandexSDK, Vector2.zero, Quaternion.identity, null);
+        Container.Bind<SDK>().FromInstance(SDK).AsSingle().NonLazy();
+
+        DontDestroyOnLoad(SDK.gameObject);
+        SDK.SetNameToToken();
     }
 }

@@ -25,9 +25,6 @@ public class AudioPlayer
 
     public float Volume => _volume;
 
-    public void StopPlayer() => AudioListener.volume = 0f;
-    public void ResumePlayer() => AudioListener.volume = Volume;
-
     public void Play(AudioClip clip)
     {
         AudioSourcer sourcer = GameObject.Instantiate(_sourcerPrefab);

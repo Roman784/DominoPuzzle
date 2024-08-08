@@ -10,7 +10,6 @@ public class SDKStorage : Storage
         try
         {
             string json = JsonUtility.ToJson(GameData, true);
-            Debug.Log($"aaaaaaaaa SAVE\n{json}");
             SDK.SaveData(json);
         }
         catch { Debug.Log("Save data error"); }
@@ -22,7 +21,6 @@ public class SDKStorage : Storage
         {
             SDK.LoadData((string json) =>
             {
-                Debug.Log($"aaaaaaaaa LOAD\n{json}");
                 GameData gameData = JsonUtility.FromJson<GameData>(json);
 
                 if (gameData == null || json == null || json == "{}" || json == "")
@@ -36,6 +34,10 @@ public class SDKStorage : Storage
                 }
             });
         }
-        catch { Debug.Log("Load data error"); }
+        catch 
+        { 
+            Debug.Log("Load data error"); 
+            callback?.Invoke(false);
+        }
     }
 }

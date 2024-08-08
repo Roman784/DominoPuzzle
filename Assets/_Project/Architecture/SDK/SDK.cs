@@ -1,21 +1,12 @@
 using System;
 using UnityEngine;
-using Zenject;
 
 public abstract class SDK : MonoBehaviour
 {
     [SerializeField] private string _tokenName;
 
-    private AudioPlayer _audioPlayer;
-
-    [Inject]
-    private void Construct(AudioPlayer audioPlayer)
-    {
-        _audioPlayer = audioPlayer;
-
-        transform.SetParent(null);
-        gameObject.name = _tokenName;
-    }
+    private bool _isGameStopped;
+    private float _currentSoundVolume;
 
     public abstract void Init(Action<bool> callback = null);
     public abstract void SaveData(string data);
@@ -24,16 +15,29 @@ public abstract class SDK : MonoBehaviour
     public abstract void ShowFullscreenAdv();
     public abstract Language GetLanguage();
 
+    public void SetNameToToken()
+    {
+        gameObject.name = _tokenName;
+    }
+
     public void StopGame()
     {
-        _audioPlayer.StopPlayer();
+        if (_isGameStopped) return;
+        _isGameStopped = true;
+
+        _currentSoundVolume = AudioListener.volume;
+
+        AudioListener.volume = 0;
         Time.timeScale = 0f;
         Debug.Log("Stop");
     }
 
     public void ContinueGame()
     {
-        _audioPlayer.ResumePlayer();
+        if (!_isGameStopped) return;
+        _isGameStopped = false;
+
+        AudioListener.volume = _currentSoundVolume;
         Time.timeScale = 1f;
         Debug.Log("Continue");
     }
