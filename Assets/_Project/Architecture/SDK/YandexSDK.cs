@@ -7,11 +7,14 @@ using UnityEngine;
 public class YandexSDK : SDK
 {
     [DllImport("__Internal")] private static extern void InitYSDKExtern(int callbackId);
+    [DllImport("__Internal")] private static extern void SaveDataExtern(string date);
+    [DllImport("__Internal")] private static extern void LoadDataExtern();
     [DllImport("__Internal")] private static extern void ShowRewardedVideoExtern(int id);
     [DllImport("__Internal")] private static extern void ShowFullscreenAdvExtern();
     [DllImport("__Internal")] private static extern string GetLanguageExtern();
 
     private Dictionary<int, Action<bool>> _callbacksMap = new Dictionary<int, Action<bool>>();
+    private Action<string> _jsonDataCallback;
 
     public override void Init(Action<bool> callback = null)
     {
@@ -21,6 +24,27 @@ public class YandexSDK : SDK
             InitYSDKExtern(callbackId); 
         }
         catch  { callback?.Invoke(false); }
+    }
+
+    public override void SaveData(string data)
+    {
+        try { SaveDataExtern(data); }
+        catch { Debug.Log("Save extern error"); }
+    }
+
+    public override void LoadData(Action<string> jsonCallback)
+    {
+        try 
+        {
+            _jsonDataCallback = jsonCallback;
+            LoadDataExtern(); 
+        }
+        catch { Debug.Log("Load extern error"); }
+    }
+
+    public void AcceptLoadedData(string json)
+    {
+        _jsonDataCallback?.Invoke(json);
     }
 
     public override void ShowRewardedVideo(Action<bool> callback = null)
@@ -44,18 +68,13 @@ public class YandexSDK : SDK
         try
         {
             string res = GetLanguageExtern();
-            Debug.Log(res);
 
             if (res == "ru")
                 return Language.Ru;
             else
                 return Language.En;
         }
-        catch 
-        {
-            Debug.Log("aaaaaaaaaaaaaaaaa");
-            return Language.En; 
-        }
+        catch { return Language.En; }
     }
 
     public void InvokeCallback(int id)

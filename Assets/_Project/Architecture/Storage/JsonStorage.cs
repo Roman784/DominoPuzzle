@@ -13,13 +13,13 @@ public class JsonStorage : Storage
         BuildPath();
     }
 
-    public override void Load(Action callback = null)
+    public override void Load(Action<bool> callback = null)
     {
         if (!File.Exists(_path))
         {
             Debug.Log("Load data error: file not exist");
 
-            callback?.Invoke();
+            callback?.Invoke(false);
             return;
         }
 
@@ -28,21 +28,19 @@ public class JsonStorage : Storage
             string json = File.ReadAllText(_path);
             GameData = JsonUtility.FromJson<GameData>(json);
 
-            callback?.Invoke();
+            callback?.Invoke(true);
 
             Debug.Log("Load data complete");
         }
         catch { Debug.Log("Load data error"); }
     }
 
-    public override void Save(Action callback = null)
+    public override void Save()
     {
         try
         {
             string json = JsonUtility.ToJson(GameData, true);
             File.WriteAllText(_path, json);
-
-            callback?.Invoke();
 
             Debug.Log("Save data complete");
         }

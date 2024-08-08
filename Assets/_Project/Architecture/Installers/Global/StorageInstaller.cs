@@ -18,6 +18,6 @@ public class StorageInstaller : MonoInstaller
 
     private void BindStorage()
     {
-        Container.Bind<Storage>().To<JsonStorage>().AsSingle().NonLazy();
+        Container.Bind<Storage>().To<SDKStorage>().AsSingle().NonLazy();
     }
 }

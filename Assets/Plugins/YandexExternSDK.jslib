@@ -1,8 +1,25 @@
 mergeInto(LibraryManager.library, {
 
-    InitYSDKExtern: function(id)
+    InitYSDKExtern : function(id)
     {
         initSDK(id);
+    },
+
+    SaveDataExtern : function(date)
+    {
+        var dateString = UTF8ToString(date);
+        var myobj = JSON.parse(dateString);
+        player.setData(myobj);
+        console.log('Save data');
+    },
+
+    LoadDataExtern : function()
+    {
+        player.getData().then(_date => {
+            const myJSON = JSON.stringify(_date);
+            gameInstance.SendMessage('YandexSDK', 'AcceptLoadedData', myJSON);
+            console.log('Load data');
+        });
     },
 
     ShowRewardedVideoExtern : function(id) 

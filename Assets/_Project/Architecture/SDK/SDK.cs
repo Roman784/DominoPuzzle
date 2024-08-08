@@ -18,6 +18,8 @@ public abstract class SDK : MonoBehaviour
     }
 
     public abstract void Init(Action<bool> callback = null);
+    public abstract void SaveData(string data);
+    public abstract void LoadData(Action<string> jsonCallback);
     public abstract void ShowRewardedVideo(Action<bool> callback = null);
     public abstract void ShowFullscreenAdv();
     public abstract Language GetLanguage();

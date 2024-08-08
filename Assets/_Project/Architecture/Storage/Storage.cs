@@ -5,15 +5,18 @@ using Zenject;
 public abstract class Storage
 {
     public abstract GameData GameData { get; protected set; }
-    public abstract void Save(Action callback = null);
-    public abstract void Load(Action callback = null);
+    public abstract void Save();
+    public abstract void Load(Action<bool> callback = null);
+
+    protected SDK SDK;
 
     private DefaultGameData _defaultData;
 
     [Inject]
-    private void Construct(DefaultGameData defaultData)
+    private void Construct(DefaultGameData defaultData, SDK SDK)
     {
         _defaultData = defaultData;
+        this.SDK = SDK;
     }
 
     public void DefaultData()

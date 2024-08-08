@@ -32,8 +32,11 @@ public class Bootstrap : MonoBehaviour
             if (res)
             {
                 _localization.Init();
-                _storage.Load(() =>
+                _storage.Load((bool res) =>
                 {
+                    if (!res)
+                        _storage.DefaultData();
+
                     OnDataLoaded();
                 });
             }
@@ -42,9 +45,6 @@ public class Bootstrap : MonoBehaviour
 
     private void OnDataLoaded()
     {
-        if (_storage.GameData == null)
-            _storage.DefaultData();
-
         _audioPlayer.Init(_storage.GameData.Audio.Volume);
         _currentTheme.Set(_storage.GameData.Theme.CurrentThemeId);
 
