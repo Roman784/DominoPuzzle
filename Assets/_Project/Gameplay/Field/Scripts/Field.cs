@@ -41,6 +41,7 @@ public class Field : MonoBehaviour
 
         InitTiles(_tiles, _minTilePosition);
         SetCorrectTilesMap(_tilesMap);
+        LockRandomTiles();
 
         _shuffling.InstantShuffle(_tiles);
         _animation.TileAppearance();
@@ -89,6 +90,15 @@ public class Field : MonoBehaviour
         foreach (var item in tilesMap)
         {
             _correctTilesMap.Add(item.Key, item.Value);
+        }
+    }
+
+    private void LockRandomTiles()
+    {
+        int count = Mathf.FloorToInt(_tiles.Count / 5f);
+        for (int i = 0; i < count; i++)
+        {
+            _tiles[Random.Range(0, _tiles.Count)].Locker.Lock();
         }
     }
 
