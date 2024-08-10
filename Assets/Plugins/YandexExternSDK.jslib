@@ -76,4 +76,8 @@ mergeInto(LibraryManager.library, {
         return buffer;
     },
 
+    GameReadyExtern: function ()
+    {
+        gameReady();
+    },
 });

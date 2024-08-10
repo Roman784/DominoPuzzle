@@ -48,6 +48,8 @@ public class Bootstrap : MonoBehaviour
         _audioPlayer.Init(_storage.GameData.Audio.Volume);
         _currentTheme.Set(_storage.GameData.Theme.CurrentThemeId);
 
+        _SDK.GameReady();
+
         OpeningLevel.SetNumber(_storage.GameData.Level.LastCompletedLevelNumber + 1);
         if (OpeningLevel.Number > _fieldCreationConfig.MaxNumber)
             _sceneTransition.OpenLevelListScenen();

@@ -12,6 +12,7 @@ public class YandexSDK : SDK
     [DllImport("__Internal")] private static extern void ShowRewardedVideoExtern(int id);
     [DllImport("__Internal")] private static extern void ShowFullscreenAdvExtern();
     [DllImport("__Internal")] private static extern string GetLanguageExtern();
+    [DllImport("__Internal")] private static extern void GameReadyExtern();
 
     private Dictionary<int, Action<bool>> _callbacksMap = new Dictionary<int, Action<bool>>();
     private Action<string> _jsonDataCallback;
@@ -75,6 +76,11 @@ public class YandexSDK : SDK
                 return Language.En;
         }
         catch { return Language.En; }
+    }
+
+    public override void GameReady()
+    {
+        GameReadyExtern();
     }
 
     public void InvokeCallback(int id)
