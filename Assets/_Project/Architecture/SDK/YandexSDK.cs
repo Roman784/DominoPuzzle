@@ -17,6 +17,20 @@ public class YandexSDK : SDK
     private Dictionary<int, Action<bool>> _callbacksMap = new Dictionary<int, Action<bool>>();
     private Action<string> _jsonDataCallback;
 
+    private Dictionary<string, Language> _languageMap = new Dictionary<string, Language>();
+
+    private void Awake()
+    {
+        InitLanguageMap();
+    }
+
+    private void InitLanguageMap()
+    {
+        _languageMap["en"] = Language.En;
+        _languageMap["ru"] = Language.Ru;
+        _languageMap["tr"] = Language.Tr;
+    }
+
     public override void Init(Action<bool> callback = null)
     {
         try 
@@ -69,11 +83,7 @@ public class YandexSDK : SDK
         try
         {
             string res = GetLanguageExtern();
-
-            if (res == "ru")
-                return Language.Ru;
-            else
-                return Language.En;
+            return _languageMap[res];
         }
         catch { return Language.En; }
     }

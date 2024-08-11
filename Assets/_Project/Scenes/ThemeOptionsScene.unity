@@ -1062,6 +1062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _en: watch the video?
   _ru: "\u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u0432\u0438\u0434\u0435\u043E?"
+  _tr: videoyu izle?
 --- !u!1 &1863545481
 GameObject:
   m_ObjectHideFlags: 0

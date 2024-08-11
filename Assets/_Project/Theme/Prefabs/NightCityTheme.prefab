@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _en: Night city
   _ru: "\u041D\u043E\u0447\u043D\u043E\u0439 \u0433\u043E\u0440\u043E\u0434"
+  _tr: "Gece \u015Fehri"
 --- !u!1 &1173123331917781942
 GameObject:
   m_ObjectHideFlags: 0

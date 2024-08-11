@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _en: Spruce forest
   _ru: "\u0415\u043B\u043E\u0432\u044B\u0439 \u043B\u0435\u0441"
+  _tr: "Ladin orman\u0131"
 --- !u!1 &3220722682976956031
 GameObject:
   m_ObjectHideFlags: 0

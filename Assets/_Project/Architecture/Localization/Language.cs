@@ -1,5 +1,6 @@
 public enum Language
 {
     En,
-    Ru
+    Ru,
+    Tr
 }
