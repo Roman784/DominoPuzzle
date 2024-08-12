@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d76dfcb50907854d95052d1cd03d0bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _editorSDK: {fileID: 2343603126054379182, guid: b631f6a54ec7af84bbb71c4177a858db, type: 3}
   _yandexSDK: {fileID: 8042791659070409055, guid: 51fef840279f53049ad5542783d8c2b7, type: 3}
 --- !u!114 &8714340972193340922
 MonoBehaviour:
