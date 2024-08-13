@@ -47,3 +47,6 @@ TagManager:
   - name: Tile
     uniqueID: 2091036293
     locked: 0
+  - name: Cursor
+    uniqueID: 3465515283
+    locked: 0
