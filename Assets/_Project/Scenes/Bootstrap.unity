@@ -184,7 +184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &545991835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _default: {fileID: 1476041851, guid: 6f04429a4d8e16f4989836ba71faf56f, type: 3}
   _pressed: {fileID: -40376978, guid: 6f04429a4d8e16f4989836ba71faf56f, type: 3}
-  _moveSpeed: 15
+  _moveSpeed: 13
 --- !u!212 &545991836
 SpriteRenderer:
   m_ObjectHideFlags: 0

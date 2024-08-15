@@ -21,11 +21,11 @@ MonoBehaviour:
       CurrentThemeId: 0
       ThemeStates:
       - Id: 0
-        IsUnlocked: 1
+        IsUnlocked: 0
       - Id: 1
         IsUnlocked: 0
       - Id: 2
         IsUnlocked: 0
       - Id: 3
-        IsUnlocked: 0
+        IsUnlocked: 1
     HintCount: 3
