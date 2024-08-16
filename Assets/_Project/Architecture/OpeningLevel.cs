@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public static class OpeningLevel
 {
     public static int Number { get; private set; } = 1;

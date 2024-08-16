@@ -18,7 +18,7 @@ MonoBehaviour:
     Audio:
       Volume: 1
     Theme:
-      CurrentThemeId: 0
+      CurrentThemeId: 3
       ThemeStates:
       - Id: 0
         IsUnlocked: 0

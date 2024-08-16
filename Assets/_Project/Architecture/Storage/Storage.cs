@@ -21,7 +21,8 @@ public abstract class Storage
 
     public void DefaultData()
     {
-        GameData = _defaultData.GameData;
+        _defaultData.GameData.Level.LastCompletedLevelNumber = 0;
+        GameData = GameObject.Instantiate(_defaultData).GameData;
         Save();
     }
 
