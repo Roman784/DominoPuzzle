@@ -28,6 +28,8 @@ public class TileSwapHint : IHint
             {
                 Tile tile2 = _field.TilesMap[coordinates];
 
+                _tileSwap.Deselect();
+
                 _tileSwap.Swap(tile, tile2);
                 tile.Locker.Lock();
 

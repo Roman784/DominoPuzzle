@@ -1,6 +1,6 @@
 {
     "Level": {
-        "LastCompletedLevelNumber": 1
+        "LastCompletedLevelNumber": 3
     },
     "Audio": {
         "Volume": 1.0
@@ -26,5 +26,5 @@
             }
         ]
     },
-    "HintCount": 3
+    "HintCount": 1
 }

@@ -43,8 +43,10 @@ public class TileSwapBehavior : ITileBehavior
         _selectedTile = tile;
     }
 
-    private void Deselect()
+    public void Deselect()
     {
+        if (_selectedTile == null) return;
+
         _selectedTile.Animation.Deselection();
         _selectedTile = null;
     }
