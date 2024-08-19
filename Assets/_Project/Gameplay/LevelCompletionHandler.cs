@@ -1,29 +1,25 @@
 using System;
-using System.Collections;
-using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 public class LevelCompletionHandler : IInitializable, IDisposable
 {
+    public UnityEvent OnCompleted = new UnityEvent();
     private bool _isCompleted;
 
     private Storage _storage;
-    private SceneTransition _sceneTransition;
+    private SDK _SDK;
     private Field _field;
-    private FieldCreationConfig _fieldCreationConfig;
     private ITileBehavior _tileBehavior;
     private ITileMatcher _tileMatcher;
 
     [Inject]
-    private void Construct(Storage storage, SceneTransition sceneTransition, 
-                           Field field, FieldCreationConfig fieldCreationConfig, 
+    private void Construct(Storage storage, SDK SDK, Field field,
                            ITileBehavior tileBehavior, ITileMatcher tileMatcher)
     {
         _storage = storage;
-        _sceneTransition = sceneTransition;
-
+        _SDK = SDK;
         _field = field;
-        _fieldCreationConfig = fieldCreationConfig;
         _tileBehavior = tileBehavior;
         _tileMatcher = tileMatcher;
     }
@@ -55,27 +51,13 @@ public class LevelCompletionHandler : IInitializable, IDisposable
         if (_isCompleted) return;
         _isCompleted = true;
 
-        Coroutines.StartRoutine(CompleteLeverRoutine());
-    }
+        _SDK.ShowFullscreenAdv();
 
-    private IEnumerator CompleteLeverRoutine()
-    {
         if (OpeningLevel.Number > _storage.GameData.Level.LastCompletedLevelNumber)
             _storage.SetLastCompletedLevelNumber(OpeningLevel.Number);
 
         _field.Sound.PlayFieldCompleteSound();
 
-        yield return new WaitForSeconds(0.15f);
-
-        _field.Animation.TileDisappearance();
-        _field.Sound.PlayTileDisappearanceSound();
-
-        yield return new WaitForSeconds(1.5f);
-
-        OpeningLevel.Next();
-        if (OpeningLevel.Number > _fieldCreationConfig.MaxNumber)
-            _sceneTransition.OpenLevelListScenen();
-        else
-            _sceneTransition.OpenGameplayScene();
+        OnCompleted?.Invoke();
     }
 }
