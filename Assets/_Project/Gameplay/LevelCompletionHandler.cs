@@ -8,17 +8,15 @@ public class LevelCompletionHandler : IInitializable, IDisposable
     private bool _isCompleted;
 
     private Storage _storage;
-    private SDK _SDK;
     private Field _field;
     private ITileBehavior _tileBehavior;
     private ITileMatcher _tileMatcher;
 
     [Inject]
-    private void Construct(Storage storage, SDK SDK, Field field,
+    private void Construct(Storage storage, Field field,
                            ITileBehavior tileBehavior, ITileMatcher tileMatcher)
     {
         _storage = storage;
-        _SDK = SDK;
         _field = field;
         _tileBehavior = tileBehavior;
         _tileMatcher = tileMatcher;
@@ -50,8 +48,6 @@ public class LevelCompletionHandler : IInitializable, IDisposable
     {
         if (_isCompleted) return;
         _isCompleted = true;
-
-        _SDK.ShowFullscreenAdv();
 
         if (OpeningLevel.Number > _storage.GameData.Level.LastCompletedLevelNumber)
             _storage.SetLastCompletedLevelNumber(OpeningLevel.Number);

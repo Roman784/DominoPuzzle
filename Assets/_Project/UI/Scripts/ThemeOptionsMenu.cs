@@ -31,6 +31,8 @@ public class ThemeOptionsMenu : SceneMenu
 
         if (isUnlocked)
         {
+            SDK.ShowFullscreenAdv();
+
             _options.Select();
             OpenGameplayScene();
         }

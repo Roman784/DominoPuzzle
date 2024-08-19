@@ -9,6 +9,7 @@ public class NextLevelButton : MonoBehaviour
     private Field _field;
     private SceneTransition _sceneTransition;
     private FieldCreationConfig _fieldCreationConfig;
+    private SDK _SDK;
 
     private Animator _animator;
 
@@ -17,11 +18,12 @@ public class NextLevelButton : MonoBehaviour
     [Inject]
     private void Construct(LevelCompletionHandler levelCompletionHandler, Field field, 
                            SceneTransition sceneTransition, FieldCreationConfig fieldCreationConfig,
-                           CurrentTheme currentTheme)
+                           CurrentTheme currentTheme, SDK SDK)
     {
         _field = field;
         _sceneTransition = sceneTransition;
         _fieldCreationConfig = fieldCreationConfig;
+        _SDK = SDK;
 
         levelCompletionHandler.OnCompleted.AddListener(Show);
 
@@ -35,6 +37,8 @@ public class NextLevelButton : MonoBehaviour
 
     public void OpenNextLevel()
     {
+        _SDK.ShowFullscreenAdv();
+
         Hide();
         StartCoroutine(OpenNextLevelRoutine());
     }

@@ -37,6 +37,8 @@ public class GameplaySceneMenu : PanelMenu
 
     public void ShuffleField()
     {
+        SDK.ShowFullscreenAdv();
+
         PlayButtonCLickSound();
 
         var tiles = _field.Tiles.ToList();

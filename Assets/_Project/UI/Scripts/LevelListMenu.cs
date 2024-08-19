@@ -13,12 +13,14 @@ public class LevelListMenu : SceneMenu
 
     private DiContainer _diContainer;
     private FieldCreationConfig _fieldCreationConfig;
+    private SDK _SDK;
 
     [Inject]
-    private void Construct(DiContainer diContainer, FieldCreationConfig fieldCreationConfig)
+    private void Construct(DiContainer diContainer, FieldCreationConfig fieldCreationConfig, SDK SDK)
     {
         _diContainer = diContainer;
         _fieldCreationConfig = fieldCreationConfig;
+        _SDK = SDK;
 
         _lastCompletedLevelNumber = Storage.GameData.Level.LastCompletedLevelNumber;
 
@@ -27,6 +29,8 @@ public class LevelListMenu : SceneMenu
 
     public void OpenLevel(int number)
     {
+        _SDK.ShowFullscreenAdv();
+
         PlayButtonCLickSound();
 
         OpeningLevel.SetNumber(number);
