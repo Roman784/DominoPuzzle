@@ -1,6 +1,5 @@
 # Domino puzzle
-### You can play here
-- Sorry, it was deleted
+### You can play here [itch.io](https://rmnmrn.itch.io/domino-puzzle)
 
 **Zenject** are used as external extension. 
 The game is localized and supports different types of saves.
