@@ -32,13 +32,26 @@ public class Bootstrap : MonoBehaviour
             if (res)
             {
                 _localization.Init();
+                Debug.Log("Init sdk!");
+
                 _storage.Load((bool res) =>
                 {
                     if (!res)
+                    {
                         _storage.DefaultData();
+                        Debug.Log("Load storage!");
+                    }
+                    else
+                    {
+                        Debug.Log("Failed to load storage!");
+                    }
 
                     OnDataLoaded();
                 });
+            }
+            else
+            {
+                Debug.Log("Failed to init sdk!");
             }
         });
     }

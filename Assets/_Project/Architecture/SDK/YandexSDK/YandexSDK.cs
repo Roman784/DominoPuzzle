@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using UnityEngine;
-
-public class YandexSDK : SDK
+public class YandexSDK /*: SDK*/
 {
-    [DllImport("__Internal")] private static extern void InitYSDKExtern(int callbackId);
+    /*[DllImport("__Internal")] private static extern void InitYSDKExtern(int callbackId);
     [DllImport("__Internal")] private static extern void SaveDataExtern(string date);
     [DllImport("__Internal")] private static extern void LoadDataExtern();
     [DllImport("__Internal")] private static extern void ShowRewardedVideoExtern(int id);
@@ -107,5 +101,5 @@ public class YandexSDK : SDK
         _callbacksMap.Add(id, callback);
 
         return id;
-    }
+    }*/
 }

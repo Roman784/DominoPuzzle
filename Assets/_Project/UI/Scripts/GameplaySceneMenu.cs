@@ -47,11 +47,11 @@ public class GameplaySceneMenu : PanelMenu
 
     public void UseHint()
     {
-        if (_hintCount <= 0)
+        /*if (_hintCount <= 0)
         {
             _hintRecoveryMenu.OpenPanel();
             return;
-        }
+        }*/
 
         PlayButtonCLickSound();
 
